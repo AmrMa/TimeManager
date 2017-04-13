@@ -1,8 +1,5 @@
-package GUI;
+package java;
 
-/**
- * Created by Void on 13/04/2017.
- */
 public class Timeline {
 
     int id;
@@ -17,7 +14,6 @@ public class Timeline {
     public Timeline() {
     }
 
-
     public int getId() {
         return id;
     }
@@ -25,7 +21,6 @@ public class Timeline {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getTimeline_title() {
         return timeline_title;
@@ -43,12 +38,9 @@ public class Timeline {
         this.timeline_description = timeline_description;
     }
 
-
-
     public void setTimeline_start_datetime(String timeline_start_datetime) {
         this.timeline_start_datetime = timeline_start_datetime;
     }
-
 
     public void setTimeline_stop_datetime(String timeline_stop_datetime) {
         this.timeline_stop_datetime = timeline_stop_datetime;
