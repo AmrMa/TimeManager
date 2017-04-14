@@ -26,6 +26,7 @@ public class MainStage extends Application {
     public void start(Stage stage) throws Exception {
         // I thought making a BorderPane would be an idea to divide parts, such as canvas on the right
         // and buttons on the left?
+        // Test
 
         //BorderPane mainWindow = new BorderPane();
 
