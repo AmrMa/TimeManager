@@ -26,15 +26,23 @@ public class MainStage extends Application {
     public void start(Stage stage) throws Exception {
         // I thought making a BorderPane would be an idea to divide parts, such as canvas on the right
         // and buttons on the left?
-        // Test
 
-        //BorderPane mainWindow = new BorderPane();
 
+        /**
+         * Right part, containing view of timelines. A scrollpane inside the right part of the borderpane
+         * would be the best solution, imo.
+         */
         final Random rng = new Random();
-        VBox content = new VBox(5);
-        ScrollPane scrollPane = new ScrollPane(content);
+        VBox timelineContent = new VBox(5);
+        timelineContent.setPrefWidth(600);
+        timelineContent.setPrefHeight(900);
 
-        Button addButton = new Button("Add");
+        ScrollPane scrollPane = new ScrollPane(timelineContent);
+        // To determine the area where scrollbars will come into play:
+        //scrollPane.minViewportHeightProperty().set(600);
+        //scrollPane.minViewportWidthProperty().set(800);
+
+        Button addButton = new Button("Add timeline");
         addButton.setOnAction(e -> {
             AnchorPane anchorPane = new AnchorPane();
             String style = String.format("-fx-background: rgb(%d, %d, %d);"+
@@ -43,26 +51,35 @@ public class MainStage extends Application {
                     rng.nextInt(256),
                     rng.nextInt(256));
             anchorPane.setStyle(style);
-            Label label = new Label("Pane "+(content.getChildren().size()+1));
+            Label label = new Label("Timeline "+(timelineContent.getChildren().size()+1));
             AnchorPane.setLeftAnchor(label, 5.0);
             AnchorPane.setTopAnchor(label, 5.0);
             Button button = new Button("Remove");
-            button.setOnAction(evt -> content.getChildren().remove(anchorPane));
+            button.setOnAction(evt -> timelineContent.getChildren().remove(anchorPane));
             AnchorPane.setRightAnchor(button, 5.0);
             AnchorPane.setTopAnchor(button, 5.0);
             AnchorPane.setBottomAnchor(button, 5.0);
             anchorPane.getChildren().addAll(label, button);
-            content.getChildren().add(anchorPane);
+            timelineContent.getChildren().add(anchorPane);
         });
-//        Image flowers = new Image(getClass().getResourceAsStream("flowers.jpg"));
-//        scrollPane.setContent(new ImageView(flowers));
 
-        //mainWindow.setRight(scrollPane);
-        BorderPane borderPane = new BorderPane(scrollPane, null, null, addButton, null);
-        borderPane.minHeight(400);
+        /**
+         * Left part:
+         */
+        VBox leftContent = new VBox(5);
+        ScrollPane buttonList = new ScrollPane(leftContent);
+        leftContent.setPrefHeight(900);
+        leftContent.setPrefWidth(200);
+
+        leftContent.getChildren().add(addButton);
+
+        BorderPane borderPane = new BorderPane(scrollPane, null, null, null, leftContent);
+        //borderPane.minHeight(400);
         Scene scene = new Scene(borderPane);
-        stage.setMinWidth(1600);
-        stage.setMinHeight(900);
+
+        // Set the size of the main window:
+        //stage.setMinWidth(1600);
+        //stage.setMinHeight(900);
         stage.setScene(scene);
         stage.show();
     }
