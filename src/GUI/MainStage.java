@@ -73,7 +73,7 @@ public class MainStage extends Application {
 
         leftContent.getChildren().add(addButton);
 
-        BorderPane borderPane = new BorderPane(scrollPane, null, null, null, leftContent);
+        BorderPane borderPane = new BorderPane(scrollPane, null, null, null, buttonList);
         //borderPane.minHeight(400);
         Scene scene = new Scene(borderPane);
 
