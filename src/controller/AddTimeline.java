@@ -1,41 +1,37 @@
-package GUI;
+package controller;
 
-import javafx.application.Application;
+import java.io.IOException;
+import java.util.Random;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.util.Random;
+//Controller for the window where the user is creating new timeline
+public class AddTimeline {
+    @FXML
+    private Button cancelBtn;
 
-
-public class MainStage extends Application {
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        // I thought making a BorderPane would be an idea to divide parts, such as canvas on the right
-        // and buttons on the left?
-
-
-        /**
-         * Right part, containing view of timelines. A scrollpane inside the right part of the borderpane
-         * would be the best solution, imo.
-         */
-        final Random rng = new Random();
+    @FXML
+    private Button displayBtn;
+    
+    @FXML
+    void displayBtn(ActionEvent event) throws IOException { 
+    	StartScreen.AddTimeline.hide();
+    	Stage stage = new Stage();
+    	System.out.print("i am the display button");
+    	// Here we write a code for creating a timeline
+    	final Random rng = new Random();
         VBox timelineContent = new VBox(5);
-        timelineContent.setPrefWidth(600);
-        timelineContent.setPrefHeight(900);
+        timelineContent.setPrefWidth(900);
+        timelineContent.setPrefHeight(400);
 
         ScrollPane scrollPane = new ScrollPane(timelineContent);
         // To determine the area where scrollbars will come into play:
@@ -83,4 +79,11 @@ public class MainStage extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    void cancelBtn(ActionEvent event) throws IOException { 
+    	System.out.print("i am the not display button");
+    	// Here we write a code for canceling creating  a timeline
+    	
+    }
+
 }
