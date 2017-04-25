@@ -17,7 +17,7 @@ public class Main extends Application{
 			 primaryStage.setScene(new Scene(root, 600, 400));
 			 primaryStage.show();
 		} catch(Exception e){
-			e.printStackTrace(); // TODO: gotta link this somehow
+			e.printStackTrace(); // TODO: gotta link this somehow.
 		}
 	}
 	public static void main(String[] args) {
