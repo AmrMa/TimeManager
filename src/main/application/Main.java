@@ -1,4 +1,4 @@
-package application;
+package main.application;
 	
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage){     // Here is the main class in our project
 		try{
-			 Parent root = FXMLLoader.load(getClass().getResource("/view/StartScreen.fxml"));// ask for the first window
+			 Parent root = FXMLLoader.load(getClass().getResource("/main/view/StartScreen.fxml"));// ask for the first window
 		     primaryStage.setResizable(false);   
 			 primaryStage.setTitle("TimeLine Manager");
 			 primaryStage.setScene(new Scene(root, 600, 400));
