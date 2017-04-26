@@ -1,14 +1,16 @@
 package test.controller;
 
+import org.junit.*;
 import static org.junit.Assert.*;
 
-/**
- * Created by JorianWielink on 26/04/2017.
- */
 public class AddTimelineTest {
-    @org.junit.Test
+    @Test
     public void displayBtn() throws Exception {
-
+        // a controller called displayBtn?
     }
 
+    @Test
+    public void cancelBtn() throws Exception {
+
+    }
 }
