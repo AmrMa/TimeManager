@@ -1,4 +1,4 @@
-package controller;
+package main.controller;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -24,8 +24,8 @@ public class StartScreen extends Application { // I think this class should
 	public void start(Stage primaryStage) { // Here is the main class in our
 		// project
 		try {
-			load = new FXMLLoader(getClass().getResource("/view/StartScreen.fxml"));
-			// load.setLocation(getClass().getResource("/view/StartScreen.fxml"));
+			load = new FXMLLoader(getClass().getResource("/main/view/StartScreen.fxml"));
+			// load.setLocation(getClass().getResource("/main.view/StartScreen.fxml"));
 			root = load.load();
 
 			primaryStage.setResizable(false);
@@ -65,7 +65,7 @@ public class StartScreen extends Application { // I think this class should
 	
 		System.out.print("i am the not load button");
 		// Here we write a code for creating a timeline
-		Parent root = FXMLLoader.load(getClass().getResource("/view/AddTimeline.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/main/view/AddTimeline.fxml"));
 
 		AddTimeline = new Stage();
 

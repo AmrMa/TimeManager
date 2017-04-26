@@ -1,4 +1,4 @@
-package controller;
+package main.controller;
 
 import java.io.IOException;
 
@@ -32,7 +32,7 @@ public class TestField {
 
 		System.out.print("i am the not load button");
 		// Here we write a code for creating a timeline
-		Parent root = FXMLLoader.load(getClass().getResource("/view/AddTimeline.fxml"));// ask
+		Parent root = FXMLLoader.load(getClass().getResource("/main/view/AddTimeline.fxml"));// ask
 																						// for
 																						// the
 																						// first
