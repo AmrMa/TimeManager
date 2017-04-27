@@ -1,56 +1,83 @@
-package model;
+package Model;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Timeline {
-	// Creating timeline with its components
-	private String title;
-	private String description;
-	private LocalDate startDate, endDate;
 
-	public Timeline(String t, String des, LocalDate stDate, LocalDate endDate) {
+	private ArrayList<Event> listOfEvents = new ArrayList<Event>();;
+	private String _reference, _description;
+	private LocalDateTime startDate;
+	private LocalDateTime endDate;
+	private int id;
 
-		this.title = t;
-		this.description = des;
-		this.startDate = stDate;
-		this.endDate = endDate;
 
+	public Timeline(){}
+
+	public Timeline(Event event){
+		listOfEvents.add(event);
 	}
 
-	// setters and getter of the timeline componenets
-
-	public void setTitle(String t) {
-		title = t;
+	public Timeline (String title, LocalDateTime start, LocalDateTime end,String desc) {
+		_reference = title;
+		startDate = start;
+		endDate = end;
+		_description = desc;
 	}
 
-	public void setDesctription(String d) {
-		description = d;
+	public String getReference() {
+		return _reference;
 	}
 
-	public void setStartDate(LocalDate sD) {
-		startDate = sD;
-	}
-
-	public void setEndDate(LocalDate eD) {
-		endDate = eD;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public LocalDate getStartDate() {
+	public LocalDateTime getInitDate() {
 		return startDate;
-
 	}
 
-	public LocalDate getEndDate() {
+	public LocalDateTime getEnd() {
 		return endDate;
 	}
 
+	public ArrayList<Event> getListOfEvents() {
+		return listOfEvents;
+	}
+
+	public void setReference(String _reference) {
+		this._reference = _reference;
+	}
+
+	public void setInitDate(LocalDateTime _initDate) {
+		this.startDate = _initDate;
+	}
+
+	public void setEnd(LocalDateTime end) {
+		this.endDate = end;
+	}
+
+	// Methods
+	public int size() {
+		return listOfEvents.size();
+	}
+
+	public boolean isEmpty() {
+		return (size() == 0);
+	}
+
+	public void addEvent(Event point) {
+		listOfEvents.add(point);
+	}
+
+	public void deleteEvent(Event toDelete){
+		listOfEvents.remove(toDelete);
+	}
+	public String toString() {
+		return _reference;
+	}
+
+	public String getDescription() {
+		return _description;
+	}
+
+	public void setDescription(String _details) {
+		this._description = _details;
+	}
 }

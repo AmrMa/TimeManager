@@ -12,9 +12,8 @@ public class Main extends Application{
 	public void start(Stage primaryStage){     // Here is the main class in our project
 		try{
 			 Parent root = FXMLLoader.load(getClass().getResource("/view/StartScreen.fxml"));// ask for the first window
-		     primaryStage.setResizable(false);   
 			 primaryStage.setTitle("TimeLine Manager");
-			 primaryStage.setScene(new Scene(root, 600, 400));
+			 primaryStage.setScene(new Scene(root, 900, 700));
 			 primaryStage.show();
 		} catch(Exception e){
 			e.printStackTrace(); // TODO: gotta link this somehow

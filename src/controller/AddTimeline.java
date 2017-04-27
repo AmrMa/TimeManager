@@ -1,89 +1,58 @@
-package controller;
+package Controller;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.Random;
 
+import Controller.MainStage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
+import static java.awt.SystemColor.window;
 
 //Controller for the window where the user is creating new timeline
 public class AddTimeline {
     @FXML
-    private Button cancelBtn;
+    private Button cancel;
 
     @FXML
-    private Button displayBtn;
+    private Button display;
     
     @FXML
-    void displayBtn(ActionEvent event) throws IOException { 
-    	StartScreen.AddTimeline.hide();
-    	Stage stage = new Stage();
-    	System.out.print("i am the display button");
-    	// Here we write a code for creating a timeline
-    	final Random rng = new Random();
-        VBox timelineContent = new VBox(5);
-        timelineContent.setPrefWidth(900);
-        timelineContent.setPrefHeight(400);
+    void display(ActionEvent event) throws IOException {
+        // this method should instantiate a timeline then jump to main stage
+        // and create canvas and display menu and buttons and the timeline itself.
 
-        ScrollPane scrollPane = new ScrollPane(timelineContent);
-        // To determine the area where scrollbars will come into play:
-        //scrollPane.minViewportHeightProperty().set(600);
-        //scrollPane.minViewportWidthProperty().set(800);
+        MainStage appStage = new MainStage();
 
-        Button addButton = new Button("Add timeline");
-        addButton.setOnAction(e -> {
-            AnchorPane anchorPane = new AnchorPane();
-            String style = String.format("-fx-background: rgb(%d, %d, %d);"+
-                            "-fx-background-color: -fx-background;",
-                    rng.nextInt(256),
-                    rng.nextInt(256),
-                    rng.nextInt(256));
-            anchorPane.setStyle(style);
-            Label label = new Label("Timeline "+(timelineContent.getChildren().size()+1));
-            AnchorPane.setLeftAnchor(label, 5.0);
-            AnchorPane.setTopAnchor(label, 5.0);
-            Button button = new Button("Remove");
-            button.setOnAction(evt -> timelineContent.getChildren().remove(anchorPane));
-            AnchorPane.setRightAnchor(button, 5.0);
-            AnchorPane.setTopAnchor(button, 5.0);
-            AnchorPane.setBottomAnchor(button, 5.0);
-            anchorPane.getChildren().addAll(label, button);
-            timelineContent.getChildren().add(anchorPane);
-        });
+        // there is no left part there can be only one canvas.
 
-        /**
-         * Left part:
-         */
-        VBox leftContent = new VBox(5);
-        ScrollPane buttonList = new ScrollPane(leftContent);
-        leftContent.setPrefHeight(900);
-        leftContent.setPrefWidth(200);
+        // there is no button list.
 
-        leftContent.getChildren().add(addButton);
+        BorderPane pane= new BorderPane();
+        pane.prefHeightProperty().bind(appStage.getStage().heightProperty());
+        pane.prefWidthProperty().bind(appStage.getStage().widthProperty());
 
-        BorderPane borderPane = new BorderPane(scrollPane, null, null, null, buttonList);
-        //borderPane.minHeight(400);
-        Scene scene = new Scene(borderPane);
+        Scene sc = new Scene(pane);
+        // a representation of the timeline should be called here we could create a rectangle or a hbox what do you guys think ?)
+        // Scratch that i tried i think i will work on this tomorrow easy not really hard.
 
-        // Set the size of the main window:
-        //stage.setMinWidth(1600);
-        //stage.setMinHeight(900);
-        stage.setScene(scene);
+
+
+        Stage stage = null;
+        stage.setScene(sc);
         stage.show();
     }
+
     @FXML
-    void cancelBtn(ActionEvent event) throws IOException { 
-    	System.out.print("i am the not display button");
-    	// Here we write a code for canceling creating  a timeline
-    	
+    void cancel(ActionEvent event) throws IOException {
+
     }
 
 }
