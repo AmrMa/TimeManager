@@ -1,10 +1,10 @@
-package Controller;
+package controller;
 
 import java.awt.*;
 import java.io.IOException;
 import java.util.Random;
 
-import Controller.MainStage;
+import controller.MainStage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;

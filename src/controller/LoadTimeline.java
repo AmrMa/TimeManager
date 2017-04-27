@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 //FileChooser
 public class LoadTimeline {
 
