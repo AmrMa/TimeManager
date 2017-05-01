@@ -1,0 +1,11 @@
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<AnchorPane fx:controller="Visual_Timeline_test.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+    <TableView fx:id="timeline" layoutX="35.0" layoutY="28.0" prefHeight="200.0" prefWidth="500.0">
+        <TableColumn prefWidth="75.0" text="Event Name" fx:id="eventName" />
+        <TableColumn prefWidth="75.0" text="Description" fx:id="description" />
+        <TableColumn prefWidth="75.0" text="Date" fx:id="date" />
+    </TableView>
+</AnchorPane>
