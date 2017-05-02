@@ -99,11 +99,11 @@ public class Main extends Application {
                 AnchorPane.setTopAnchor(title, 15.0);
                 anchorPane.getChildren().add(title);
 
-                Line timeline = new Line(100, 35.0, 800.0, 35.0);
-                Line startPoint = new Line(100, 20.0, 100.0, 50.0);
-                Line endPoint = new Line(800, 20.0, 800.0, 50.0);
-                anchorPane.getChildren().addAll(timeline, startPoint, endPoint);
-
+//                Line timeline = new Line(100, 35.0, 400.0, 35.0);
+//                Line startPoint = new Line(100, 20.0, 100.0, 50.0);
+//                Line endPoint = new Line(400, 20.0, 400.0, 50.0);
+                TimelineView timeline = new TimelineView();
+                anchorPane.getChildren().addAll(timeline);
 
                 timelineContent.getChildren().add(anchorPane);
             });
@@ -128,7 +128,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
         stage.setHeight(600);
-        stage.setWidth(1500);
+        stage.setWidth(1100);
     }
 
     public static void main(String[] args) {
