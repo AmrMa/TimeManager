@@ -3,16 +3,15 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import com.sun.javafx.tk.FontLoader;
+import com.sun.javafx.tk.Toolkit;
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
-import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.Timeline;
 
@@ -99,10 +98,16 @@ public class Main extends Application {
                 AnchorPane.setTopAnchor(title, 15.0);
                 anchorPane.getChildren().add(title);
 
-//                Line timeline = new Line(100, 35.0, 400.0, 35.0);
-//                Line startPoint = new Line(100, 20.0, 100.0, 50.0);
-//                Line endPoint = new Line(400, 20.0, 400.0, 50.0);
-                TimelineView timeline = new TimelineView();
+                //Get the width of the title:
+                FontLoader fl = Toolkit.getToolkit().getFontLoader();
+                double labelWidth = fl.computeStringWidth(title.getText(), Font.getDefault());
+                System.out.println(fl.computeStringWidth(title.getText(), Font.getDefault()));
+
+                // Timelineview is the representation of a timeline.
+                // This Timelineview should later on process the events inside its pane.
+                TimelineView timeline = new TimelineView(newTimeline);
+                AnchorPane.setTopAnchor(timeline, 20.0);
+                AnchorPane.setLeftAnchor(timeline,labelWidth + 30.0);
                 anchorPane.getChildren().addAll(timeline);
 
                 timelineContent.getChildren().add(anchorPane);
@@ -120,6 +125,10 @@ public class Main extends Application {
 
         leftContent.getChildren().add(addButton);
 
+
+        /**
+         * Assign the parts to the borderpane
+         */
         BorderPane borderPane = new BorderPane(scrollPane, null, null, null, buttonList);
 
         Scene scene = new Scene(borderPane);
