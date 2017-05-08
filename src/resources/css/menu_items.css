@@ -235,7 +235,7 @@
 .text-input{
     -fx-background-radius: 0, 0;
     -fx-background-color: white;
-    -fx-border-color: transparent;
+    -fx-border-color: black;
     -fx-background-insets: 0;
     -fx-prompt-text-fill: #818181;
     -fx-highlight-fill: #008287; /* TODO: this probably is the "active" color" */
