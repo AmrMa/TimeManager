@@ -1,28 +1,15 @@
 package main.controller;
 
-import com.jfoenix.controls.JFXButton;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
-import javafx.scene.Group;
-import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 import main.common.ScreenController;
 import main.model.Timeline;
-import main.model.TimelineDB;
-import main.model.TimelineView;
-import main.utils.Loading;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.time.Period;
 
 import static main.common.StageManager.getStage;
