@@ -18,7 +18,7 @@
          <children>
                 <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="21.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../resources/img/addevent.png" />
+                        <Image url="@../../resources/img/addTask.png" />
                     </image>
                 </ImageView>
               <Button fx:id="ButtonAdd" layoutX="20.0" layoutY="28.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="41.0" styleClass="buttonCircleBlack" />

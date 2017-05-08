@@ -26,7 +26,7 @@
             </graphic>
         </Button>
       <AnchorPane fx:id="myDisplay" layoutX="64.0" layoutY="191.0" prefHeight="213.0" prefWidth="1047.0" />
-      <ImageView fx:id="ButtonAdd" fitHeight="40.0" fitWidth="41.0" layoutX="23.0" layoutY="278.0" onMouseClicked="#addTask" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ButtonAdd" fitHeight="40.0" fitWidth="41.0" layoutX="23.0" layoutY="278.0" onMouseClicked="#eventAdd" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/img/addTask.png" />
          </image>

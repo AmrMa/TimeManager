@@ -3,6 +3,7 @@ package main.controller;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import main.common.ScreenController;
@@ -42,6 +43,6 @@ public class TimelineDetailsFragment {
     @FXML
     public void eventAdd(){}
 
-    public void addTask(MouseEvent mouseEvent) {
+    public void eventAdd(MouseEvent mouseEvent) {
     }
 }
