@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
 import main.common.ScreenController;
 import main.model.Event;
 import main.model.Timeline;
@@ -60,7 +61,7 @@ public class TimelineDetailsFragment {
          * the timeline.
          *
          * Dividing the days until the event with the total days of the timeline, I get the relative position of where to
-         * put the event.
+         * put the event. This position is then used by creating a line on the timeline.
          *
          */
         for (Event e: events) {
@@ -80,6 +81,14 @@ public class TimelineDetailsFragment {
             Line eventLine = new Line(positionToPutEvent,lineHeight - 10,positionToPutEvent,lineHeight + 10);
             myDisplay.getChildren().add(eventLine);
 
+            Label dateOfEvent = new Label(e.getEvent_startDate().toString());
+            dateOfEvent.relocate(positionToPutEvent,lineHeight + 20);
+            myDisplay.getChildren().add(dateOfEvent);
+
+            Label titleOfEvent = new Label(e.getEvent_title());
+            titleOfEvent.relocate(positionToPutEvent,lineHeight - 40);
+            titleOfEvent.setFont(Font.font(15));
+            myDisplay.getChildren().add(titleOfEvent);
         }
 
 
