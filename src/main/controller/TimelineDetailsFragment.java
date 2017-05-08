@@ -6,8 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import main.common.ScreenController;
@@ -78,8 +80,12 @@ public class TimelineDetailsFragment {
             double positionToPutEvent = myDisplay.getPrefWidth() * relativePosition / 100;
             System.out.println("Position to put event: " + positionToPutEvent);
 
-            Line eventLine = new Line(positionToPutEvent,lineHeight - 10,positionToPutEvent,lineHeight + 10);
-            myDisplay.getChildren().add(eventLine);
+            ImageView eventCircle = new ImageView(new Image("resources/img/anEvent.png"));
+            eventCircle.relocate(positionToPutEvent,lineHeight - 10);
+            eventCircle.setFitHeight(20);
+            eventCircle.setPreserveRatio(true);
+            //Line eventLine = new Line(positionToPutEvent,lineHeight - 10,positionToPutEvent,lineHeight + 10);
+            myDisplay.getChildren().add(eventCircle);
 
             Label dateOfEvent = new Label(e.getEvent_startDate().toString());
             dateOfEvent.relocate(positionToPutEvent,lineHeight + 20);
