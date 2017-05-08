@@ -23,11 +23,11 @@
       <AnchorPane layoutX="82.0" layoutY="129.0" prefHeight="470.0" prefWidth="434.0">
          <children>
             <TextField fx:id="timelineTitle" layoutY="14.0" prefHeight="40.0" prefWidth="437.0" promptText="Enter timeline title..." />
-            <DatePicker fx:id="timelineStartDate" layoutY="86.0" promptText="Start date..." />
-            <DatePicker fx:id="timelineEndDate" layoutX="223.0" layoutY="86.0" promptText="End date..." />
-            <Button fx:id="saveBtn" layoutX="166.0" layoutY="376.0" mnemonicParsing="false" onAction="#saveTimelineDetails" prefHeight="40.0" prefWidth="114.0" styleClass="btn" text="Save" />
-            <Button fx:id="cancelBtn" layoutY="376.0" mnemonicParsing="false" onAction="#cancelCreate" prefHeight="40.0" prefWidth="114.0" styleClass="btn" text="Cancel" />
-            <TextField fx:id="timelineDescription" alignment="BOTTOM_LEFT" layoutY="147.0" prefHeight="88.0" prefWidth="438.0" promptText="Enter timeline description..." />
+            <DatePicker fx:id="timelineStartDate" layoutY="101.0" promptText="Start date..." />
+            <DatePicker fx:id="timelineEndDate" layoutX="223.0" layoutY="101.0" promptText="End date..." />
+            <Button fx:id="saveBtn" layoutX="31.0" layoutY="376.0" mnemonicParsing="false" onAction="#saveTimelineDetails" prefHeight="40.0" prefWidth="114.0" styleClass="btn" text="Save" />
+            <Button fx:id="cancelBtn" layoutX="223.0" layoutY="376.0" mnemonicParsing="false" onAction="#cancelCreate" prefHeight="40.0" prefWidth="114.0" styleClass="btn" text="Cancel" />
+            <TextField fx:id="timelineDescription" alignment="BOTTOM_LEFT" layoutY="184.0" prefHeight="114.0" prefWidth="438.0" promptText="Enter timeline description..." />
          </children>
       </AnchorPane>
         <Button fx:id="ButtonBack" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="41.0" styleClass="buttonCircleBlack">

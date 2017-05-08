@@ -27,7 +27,7 @@
         </Button>
       <AnchorPane fx:id="myDisplay" layoutX="64.0" layoutY="191.0" prefHeight="213.0" prefWidth="1047.0">
          <children>
-            <ImageView fitHeight="32.0" fitWidth="24.0" layoutX="14.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="event" fitHeight="32.0" fitWidth="24.0" layoutX="14.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../resources/img/anEvent.png" />
                </image>
