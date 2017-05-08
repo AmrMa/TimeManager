@@ -44,9 +44,13 @@ public class TimelineDetailsFragment {
     @FXML
     public void back() throws IOException {ScreenController.setScreen(ScreenController.Screen.HOME);}
 
-    @FXML
+    //It is not a task, it is an event we should add.
     public void addTask(){
 
     }
 
+    @FXML
+    public void addEvent() {
+
+    }
 }
