@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
@@ -86,10 +88,13 @@ public class TimelineDetailsFragment {
             double positionToPutEvent = myDisplay.getPrefWidth() * relativePosition / 100;
             System.out.println("Position to put event: " + positionToPutEvent);
 
-            ImageView eventCircle = new ImageView(new Image("resources/img/anEvent.png"));
+            //ImageView eventCircle = new ImageView(new Image("resources/img/anEvent.png"));
+            Circle eventCircle = new Circle(10, Color.WHITE);
+            eventCircle.setStrokeWidth(1.0);
+            eventCircle.setStroke(Color.BLACK);
             eventCircle.relocate(positionToPutEvent - 5,lineHeight - 10);
-            eventCircle.setFitHeight(20);
-            eventCircle.setPreserveRatio(true);
+//            eventCircle.setFitHeight(20);
+//            eventCircle.setPreserveRatio(true);
             eventCircle.setOnMouseEntered(event -> getStage().getScene().setCursor(Cursor.HAND));
             eventCircle.setOnMouseExited(event -> getStage().getScene().setCursor(Cursor.DEFAULT));
             eventCircle.setOnMouseClicked(event -> {
