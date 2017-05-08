@@ -13,6 +13,7 @@
 
 <AnchorPane fx:id="PaneMain" prefHeight="749.0" prefWidth="1298.0" style="-fx-background-color: white;" stylesheets="@../../resources/css/menu_items.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.NewTimelineFragment">
     <children>
+      <AnchorPane layoutX="534.0" layoutY="129.0" prefHeight="470.0" prefWidth="434.0" />
         <Separator layoutY="73.0" prefHeight="0.0" prefWidth="1298.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
         <Text fill="#929294" layoutX="82.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New timeline">
             <font>

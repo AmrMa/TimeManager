@@ -1,11 +1,22 @@
 package main.controller;
 
+import com.jfoenix.controls.JFXButton;
+import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import main.common.ScreenController;
 import main.model.Timeline;
 
@@ -20,11 +31,12 @@ import static main.controller.NewTimelineFragment.myTime;
 public class TimelineDetailsFragment {
     @FXML private Button ButtonBack;
     @FXML private AnchorPane myDisplay;
-
+    @FXML private ImageView ButtonAdd;
+    @FXML private ImageView event;
     Timeline display = myTime;
-    int sep;
-    boolean isWeeks,isYears,isDays;
+
     public void initialize() throws SQLException {
+        event.setVisible(false);
         ButtonBack.setOnMouseEntered(e -> getStage().getScene().setCursor(Cursor.HAND));
         ButtonBack.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
         Period s =display.getStartDate().until(display.getEndDate());
@@ -41,8 +53,8 @@ public class TimelineDetailsFragment {
     public void back() throws IOException {ScreenController.setScreen(ScreenController.Screen.HOME);}
 
     @FXML
-    public void eventAdd(){}
+    public void addTask(){
 
-    public void eventAdd(MouseEvent mouseEvent) {
     }
+
 }

@@ -19,6 +19,10 @@ import static main.common.StageManager.getStage;
 public class NewTimelineFragment {
     @FXML private Button cancelBtn;
     @FXML private Button saveBtn;
+    @FXML private GridPane PaneAdd;
+    @FXML private GridPane PaneTabel;
+    @FXML private HBox PaneTop;
+
     @FXML private Button ButtonBack;
     @FXML private AnchorPane PaneMain;
     @FXML private TextField timelineTitle;
