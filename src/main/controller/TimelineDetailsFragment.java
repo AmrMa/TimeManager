@@ -23,6 +23,7 @@ import java.time.Period;
 import java.util.ArrayList;
 
 import static main.common.StageManager.getStage;
+import static main.controller.NewEventFragment.myEvent;
 import static main.controller.NewTimelineFragment.myTime;
 
 
@@ -43,14 +44,19 @@ public class TimelineDetailsFragment {
         lineHeight = myDisplay.getLayoutY() / 2;
         timelinePeriod = display.getStartDate().until(display.getEndDate());
 
-        displayTimeline();
+        displayTimeline(timelinePeriod.getDays());
         displayEvents();
 
     }
 
-    private void displayTimeline() {
+    private void displayTimeline(int period) {
         lineTimeline = new Line(0,lineHeight,myDisplay.getPrefWidth(),lineHeight);
         myDisplay.getChildren().add(lineTimeline);
+        double distanceBetweenLines = myDisplay.getPrefWidth() / period;
+        for (int i = 1; i < timelinePeriod.getDays(); i++) {
+            Line verticalLine = new Line(i * distanceBetweenLines,lineHeight-5,i * distanceBetweenLines, lineHeight+5);
+            myDisplay.getChildren().add(verticalLine);
+        }
     }
 
     private void displayEvents() {
@@ -81,24 +87,31 @@ public class TimelineDetailsFragment {
             System.out.println("Position to put event: " + positionToPutEvent);
 
             ImageView eventCircle = new ImageView(new Image("resources/img/anEvent.png"));
-            eventCircle.relocate(positionToPutEvent,lineHeight - 10);
+            eventCircle.relocate(positionToPutEvent - 5,lineHeight - 10);
             eventCircle.setFitHeight(20);
             eventCircle.setPreserveRatio(true);
+            eventCircle.setOnMouseEntered(event -> getStage().getScene().setCursor(Cursor.HAND));
+            eventCircle.setOnMouseExited(event -> getStage().getScene().setCursor(Cursor.DEFAULT));
+            eventCircle.setOnMouseClicked(event -> {
+                myEvent = e;
+                try {
+                    ScreenController.setScreen(ScreenController.Screen.NEW_EVENT);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            });
             //Line eventLine = new Line(positionToPutEvent,lineHeight - 10,positionToPutEvent,lineHeight + 10);
             myDisplay.getChildren().add(eventCircle);
 
             Label dateOfEvent = new Label(e.getEvent_startDate().toString());
-            dateOfEvent.relocate(positionToPutEvent,lineHeight + 20);
+            dateOfEvent.relocate(positionToPutEvent - 5,lineHeight + 20);
             myDisplay.getChildren().add(dateOfEvent);
 
             Label titleOfEvent = new Label(e.getEvent_title());
-            titleOfEvent.relocate(positionToPutEvent,lineHeight - 40);
+            titleOfEvent.relocate(positionToPutEvent - 5,lineHeight - 40);
             titleOfEvent.setFont(Font.font(15));
             myDisplay.getChildren().add(titleOfEvent);
         }
-
-
-        Line eventMoment = new Line();
     }
 
     @FXML
