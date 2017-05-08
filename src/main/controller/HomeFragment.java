@@ -1,8 +1,8 @@
 package main.controller;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -15,8 +15,8 @@ import java.sql.SQLException;
 
 public class HomeFragment {
 
-    @FXML private JFXButton createBtn;
-    @FXML private JFXButton loadBtn;
+    @FXML private Button createBtn;
+    @FXML private Button loadBtn;
 
     public void initialize() throws SQLException {
         createBtn.getStyleClass().add("button-flat");
