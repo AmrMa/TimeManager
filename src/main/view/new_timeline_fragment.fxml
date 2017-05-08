@@ -19,16 +19,16 @@
                 <Font name="Segoe UI Semilight" size="40.0" />
             </font>
         </Text>
-      <AnchorPane layoutX="82.0" layoutY="129.0" prefHeight="470.0" prefWidth="434.0">
-         <children>
-            <TextField fx:id="timelineTitle" layoutY="14.0" prefHeight="30.0" prefWidth="437.0" promptText="Enter timeline title..." />
-            <DatePicker fx:id="timelineStartDate" layoutY="91.0" promptText="Start date..." />
-            <DatePicker fx:id="timelineEndDate" layoutX="223.0" layoutY="91.0" promptText="End date..." />
-            <Button fx:id="saveBtn" layoutY="376.0" mnemonicParsing="false" onAction="#saveTimelineDetails" styleClass="btn" text="Save" />
-            <Button fx:id="cancelBtn" layoutX="126.0" layoutY="376.0" mnemonicParsing="false" onAction="#cancelCreate" styleClass="btn" text="Cancel" />
-            <TextField fx:id="timelineDescription" alignment="BOTTOM_LEFT" layoutY="166.0" prefHeight="114.0" prefWidth="438.0" promptText="Enter timeline description..." />
-         </children>
-      </AnchorPane>
+        <AnchorPane layoutX="82.0" layoutY="129.0" prefHeight="470.0" prefWidth="434.0">
+            <children>
+                <TextField fx:id="timelineTitle" layoutY="14.0" prefHeight="30.0" prefWidth="437.0" promptText="Enter timeline title..." />
+                <DatePicker fx:id="timelineStartDate" layoutY="91.0" promptText="Start date..." />
+                <DatePicker fx:id="timelineEndDate" layoutX="223.0" layoutY="91.0" promptText="End date..." />
+                <Button fx:id="saveBtn" layoutY="376.0" mnemonicParsing="false" onAction="#saveTimelineDetails" styleClass="btn" text="Save" />
+                <Button fx:id="cancelBtn" layoutX="126.0" layoutY="376.0" mnemonicParsing="false" onAction="#cancelCreate" styleClass="btn" text="Cancel" />
+                <TextField fx:id="timelineDescription" alignment="BOTTOM_LEFT" layoutY="166.0" prefHeight="114.0" prefWidth="438.0" promptText="Enter timeline description..." />
+            </children>
+        </AnchorPane>
         <Button fx:id="ButtonBack" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="41.0" styleClass="buttonCircleBlack">
             <graphic>
                 <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -38,10 +38,10 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Label layoutX="82.0" layoutY="90.0" text="Details">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
+        <Label layoutX="82.0" layoutY="90.0" text="Details">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>
