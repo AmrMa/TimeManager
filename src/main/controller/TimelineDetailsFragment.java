@@ -10,11 +10,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import main.common.ScreenController;
+import main.model.Event;
 import main.model.Timeline;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 
 import static main.common.StageManager.getStage;
 import static main.controller.NewTimelineFragment.myTime;
@@ -23,22 +26,64 @@ import static main.controller.NewTimelineFragment.myTime;
 public class TimelineDetailsFragment {
     @FXML private Button ButtonBack;
     @FXML private AnchorPane myDisplay;
-    @FXML private ImageView ButtonAdd;
-    @FXML private ImageView event;
+    @FXML private Button newEventButton;
+
     Timeline display = myTime;
+    double lineHeight;
+    Period timelinePeriod;
+    private Line lineTimeline;
+
 
     public void initialize() throws SQLException {
-        event.setVisible(false);
         ButtonBack.setOnMouseEntered(e -> getStage().getScene().setCursor(Cursor.HAND));
         ButtonBack.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
-        Period s =display.getStartDate().until(display.getEndDate());
-        displayTime(s.getDays());
+        lineHeight = myDisplay.getLayoutY() / 2;
+        timelinePeriod = display.getStartDate().until(display.getEndDate());
+
+        displayTimeline();
+        displayEvents();
 
     }
 
-    private void displayTime(int sep) {
-        Line doIt = new Line(0,myDisplay.getLayoutY()/2,myDisplay.getPrefWidth(),myDisplay.getLayoutY()/2);
-        myDisplay.getChildren().add(doIt);
+    private void displayTimeline() {
+        lineTimeline = new Line(0,lineHeight,myDisplay.getPrefWidth(),lineHeight);
+        myDisplay.getChildren().add(lineTimeline);
+    }
+
+    private void displayEvents() {
+        ArrayList<Event> events = myTime.getListOfEvents();
+
+        /**
+         * For each event, I try to calculate the position of the event on the timeline.
+         * I do this by getting the total length of the line, being the total period in days of the timeline.
+         * I compare this with the days until the event takes place, given the date of the event and the start date of
+         * the timeline.
+         *
+         * Dividing the days until the event with the total days of the timeline, I get the relative position of where to
+         * put the event.
+         *
+         */
+        for (Event e: events) {
+            LocalDate eventMoment = e.getEvent_startDate();
+            Period periodUntilEvent = display.getStartDate().until(eventMoment);
+
+            int totalDays = timelinePeriod.getDays();
+            int daysUntilEvent = periodUntilEvent.getDays();
+            System.out.println("Totaldays: " + totalDays);
+            System.out.println("Days until event: " + daysUntilEvent);
+
+            int relativePosition = (daysUntilEvent * 100) / totalDays;
+
+            double positionToPutEvent = myDisplay.getPrefWidth() * relativePosition / 100;
+            System.out.println("Position to put event: " + positionToPutEvent);
+
+            Line eventLine = new Line(positionToPutEvent,lineHeight - 10,positionToPutEvent,lineHeight + 10);
+            myDisplay.getChildren().add(eventLine);
+
+        }
+
+
+        Line eventMoment = new Line();
     }
 
     @FXML
@@ -50,7 +95,7 @@ public class TimelineDetailsFragment {
     }
 
     @FXML
-    public void addEvent() {
-
+    public void addEvent() throws IOException {
+        ScreenController.setScreen(ScreenController.Screen.NEW_EVENT);
     }
 }

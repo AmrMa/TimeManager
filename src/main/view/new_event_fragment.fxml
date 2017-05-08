@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -26,7 +27,9 @@
                 </ImageView>
             </graphic>
         </Button>
-        <AnchorPane fx:id="myDisplay" layoutX="64.0" layoutY="191.0" prefHeight="213.0" prefWidth="1047.0" />
-      <TextField layoutX="82.0" layoutY="144.0" promptText="Enter event title..." />
+      <TextField fx:id="eventTitle" layoutX="82.0" layoutY="144.0" promptText="Enter event title..." />
+      <DatePicker fx:id="eventDate" layoutX="82.0" layoutY="217.0" promptText="Set date..." />
+      <Button fx:id="saveButton" layoutX="82.0" layoutY="475.0" mnemonicParsing="false" onAction="#saveEvent" styleClass="btn" text="Save" />
+      <Button fx:id="cancelButton" layoutX="206.0" layoutY="475.0" mnemonicParsing="false" onAction="#cancelNewEvent" styleClass="btn" text="Cancel" />
     </children>
 </AnchorPane>
