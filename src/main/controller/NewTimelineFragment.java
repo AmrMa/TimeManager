@@ -17,8 +17,6 @@ import static main.common.StageManager.getStage;
 
 
 public class NewTimelineFragment {
-    @FXML private Button deleteBtn;
-    @FXML private Button displayBtn;
     @FXML private Button cancelBtn;
     @FXML private Button saveBtn;
     @FXML private Button ButtonBack;
@@ -30,21 +28,13 @@ public class NewTimelineFragment {
     static Timeline myTime = new Timeline();
     static int numberOfTimelines=0;
     private boolean isCreated=false;
-    @FXML private ComboBox statusId;
 
     public void initialize() throws SQLException {
         ButtonBack.setOnMouseEntered(e -> getStage().getScene().setCursor(Cursor.HAND));
         ButtonBack.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
 
-        deleteBtn.setVisible(false);
-        displayBtn.setVisible(false);
         cancelBtn.getStyleClass().add("button-flat");
         saveBtn.getStyleClass().add("button-flat");
-        statusId.getItems().addAll(
-                "Completed",
-                "In Progress",
-                "Postponed"
-        );
 
         cancelBtn.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         cancelBtn.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
@@ -57,7 +47,7 @@ public class NewTimelineFragment {
 
     @FXML
     public void saveTimelineDetails() throws IOException,NumberFormatException {
-        if(correctDuration(timelineStartDate.getValue(),timelineEndDate.getValue()) && !timelineTitle.getText().equals("")){
+        if (correctDuration(timelineStartDate.getValue(),timelineEndDate.getValue()) && !timelineTitle.getText().equals("")){
             myTime.setId(numberOfTimelines++);
             myTime.setTitle(timelineTitle.getText());
             myTime.setDescription(timelineDescription.getText());
