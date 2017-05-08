@@ -19,6 +19,7 @@ import static main.controller.NewTimelineFragment.myTime;
 public class TimelineDetailsFragment {
     @FXML private Button ButtonBack;
     @FXML private AnchorPane myDisplay;
+
     Timeline display = myTime;
     int sep;
     boolean isWeeks,isYears,isDays;
@@ -41,4 +42,6 @@ public class TimelineDetailsFragment {
     @FXML
     public void eventAdd(){}
 
+    public void addTask(MouseEvent mouseEvent) {
+    }
 }
