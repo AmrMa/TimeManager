@@ -1,25 +1,14 @@
 package main.controller;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTextField;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import main.animation.FadeInRightTransition;
 import main.common.AlertMessage;
 import main.common.ScreenController;
 import main.model.Timeline;
-import main.model.TimelineDB;
-import main.utils.Loading;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -28,20 +17,18 @@ import static main.common.StageManager.getStage;
 
 
 public class NewTimelineFragment {
+    @FXML private Button cancelBtn;
+    @FXML private Button saveBtn;
     @FXML private GridPane PaneAdd;
     @FXML private GridPane PaneTabel;
     @FXML private HBox PaneTop;
 
-    @FXML private JFXButton deleteBtn;
-    @FXML private JFXButton displayBtn;
-    @FXML private JFXButton cancelBtn;
-    @FXML private JFXButton saveBtn;
     @FXML private Button ButtonBack;
     @FXML private AnchorPane PaneMain;
-    @FXML private JFXTextField timelineTitle;
-    @FXML private JFXTextField timelineDescription;
-    @FXML private JFXDatePicker timelineStartDate;
-    @FXML private JFXDatePicker timelineEndDate;
+    @FXML private TextField timelineTitle;
+    @FXML private TextField timelineDescription;
+    @FXML private DatePicker timelineStartDate;
+    @FXML private DatePicker timelineEndDate;
     static Timeline myTime = new Timeline();
     static int numberOfTimelines=0;
     private boolean isCreated=false;

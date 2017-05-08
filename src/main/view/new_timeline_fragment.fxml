@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXDatePicker?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,23 +15,19 @@
     <children>
       <AnchorPane layoutX="534.0" layoutY="129.0" prefHeight="470.0" prefWidth="434.0" />
         <Separator layoutY="73.0" prefHeight="0.0" prefWidth="1298.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-        <Text fill="#929294" layoutX="82.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the Project Details Below...">
+        <Text fill="#929294" layoutX="82.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New timeline">
             <font>
                 <Font name="Segoe UI Semilight" size="40.0" />
             </font>
         </Text>
       <AnchorPane layoutX="82.0" layoutY="129.0" prefHeight="470.0" prefWidth="434.0">
          <children>
-            <JFXButton fx:id="deleteBtn" layoutX="273.0" layoutY="416.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="114.0" text="Delete" />
-            <JFXButton fx:id="displayBtn" layoutX="65.0" layoutY="416.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="114.0" text="Display" />
-            <JFXTextField fx:id="timelineTitle" layoutY="14.0" prefHeight="40.0" prefWidth="430.0" promptText="Enter timeline title..." />
-            <JFXDatePicker fx:id="timelineStartDate" layoutY="145.0" promptText="Start date..." />
-            <JFXDatePicker fx:id="timelineEndDate" layoutX="232.0" layoutY="145.0" promptText="End date..." />
-            <JFXButton fx:id="saveBtn" layoutX="65.0" layoutY="416.0" mnemonicParsing="false" onAction="#saveTimelineDetails" prefHeight="40.0" prefWidth="114.0" text="Save" />
-            <JFXButton fx:id="cancelBtn" layoutX="273.0" layoutY="416.0" mnemonicParsing="false" onAction="#cancelCreate" prefHeight="40.0" prefWidth="114.0" text="Cancel" />
-            <JFXTextField fx:id="timelineDescription" alignment="BOTTOM_LEFT" layoutY="266.0" prefHeight="88.0" prefWidth="430.0" promptText="Enter timeline description..." />
-            <Label layoutY="82.0" prefHeight="27.0" prefWidth="41.0" text="Status:" />
-            <JFXComboBox fx:id="statusId" layoutX="47.0" layoutY="82.0" prefHeight="3.0" prefWidth="150.0" promptText="In Progress" />
+            <TextField fx:id="timelineTitle" layoutY="14.0" prefHeight="40.0" prefWidth="437.0" promptText="Enter timeline title..." />
+            <DatePicker fx:id="timelineStartDate" layoutY="86.0" promptText="Start date..." />
+            <DatePicker fx:id="timelineEndDate" layoutX="223.0" layoutY="86.0" promptText="End date..." />
+            <Button fx:id="saveBtn" layoutX="166.0" layoutY="376.0" mnemonicParsing="false" onAction="#saveTimelineDetails" prefHeight="40.0" prefWidth="114.0" styleClass="btn" text="Save" />
+            <Button fx:id="cancelBtn" layoutY="376.0" mnemonicParsing="false" onAction="#cancelCreate" prefHeight="40.0" prefWidth="114.0" styleClass="btn" text="Cancel" />
+            <TextField fx:id="timelineDescription" alignment="BOTTOM_LEFT" layoutY="147.0" prefHeight="88.0" prefWidth="438.0" promptText="Enter timeline description..." />
          </children>
       </AnchorPane>
         <Button fx:id="ButtonBack" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="41.0" styleClass="buttonCircleBlack">
@@ -45,15 +39,9 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Label layoutX="82.0" layoutY="103.0" text="Details">
+      <Label layoutX="82.0" layoutY="90.0" text="Details">
          <font>
             <Font size="17.0" />
-         </font>
-      </Label>
-
-      <Label layoutX="523.0" layoutY="91.0" text="Tasks">
-         <font>
-            <Font size="18.0" />
          </font>
       </Label>
     </children>
