@@ -48,6 +48,7 @@ public class NewTimelineFragment {
 
     @FXML
     public void saveTimelineDetails() throws IOException,NumberFormatException {
+    
         if (correctDuration(timelineStartDate.getValue(),timelineEndDate.getValue()) && !timelineTitle.getText().equals("")){
             myTime.setId(numberOfTimelines++);
             myTime.setTitle(timelineTitle.getText());
@@ -64,13 +65,17 @@ public class NewTimelineFragment {
     }
 
     private boolean correctDuration(LocalDate start, LocalDate end) { //this checks that end is older that the start.
-        if(start.isAfter(end)|| start.isEqual(end))return false;
+        //Alex null check is done here
+    	if( start==null || end==null)
+        	return false;
+        else{
+    	if(start.isAfter(end)|| start.isEqual(end) )return false;
         else{
             myTime.setStartDate(timelineStartDate.getValue());
             myTime.setEndDate(timelineEndDate.getValue());
             return true;
         }
-
+        }
     }
 
     @FXML
