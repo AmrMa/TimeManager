@@ -37,14 +37,8 @@ public class NewEventFragment {
 
     @FXML
     public void saveEvent() throws IOException {
-        // Modify the event when event exists already:
-        if (myEvent != null) {
-            myTime.deleteEvent(myEvent);
-            myEvent.setEvent_startDate(eventDate.getValue());
-            myEvent.setEvent_title(eventTitle.getText());
-        } else {
-            myEvent = new Event(eventTitle.getText(),"TEST DESCRIPTION",eventDate.getValue());
-        }
+  
+        myEvent = new Event(eventTitle.getText(),"TEST DESCRIPTION",eventDate.getValue());
         myTime.addEvent(myEvent);
         ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);
     }

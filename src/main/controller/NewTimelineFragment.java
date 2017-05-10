@@ -26,6 +26,8 @@ public class NewTimelineFragment {
     @FXML private TextField timelineDescription;
     @FXML private DatePicker timelineStartDate;
     @FXML private DatePicker timelineEndDate;
+    @FXML private ChoiceBox<Integer> starthour;
+    @FXML private ChoiceBox<Integer> starthour1;
     static Timeline myTime = new Timeline();
     static int numberOfTimelines=0;
     private boolean isCreated=false;
@@ -39,6 +41,8 @@ public class NewTimelineFragment {
 
         cancelBtn.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         cancelBtn.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
+        starthour.getItems().addAll(1,2,4,6,8,10,12,14,16,18,20,22,24);
+        starthour1.getItems().addAll(1,2,4,6,8,10,12,14,16,18,20,22,24);
     }
     @FXML
     public void back() throws IOException{ScreenController.setScreen(ScreenController.Screen.HOME);}
@@ -54,7 +58,7 @@ public class NewTimelineFragment {
             myTime.setDescription(timelineDescription.getText());
             isCreated=true;
             //change button save with button display and cancel with a delete button if user clicks display we move to timeline view fragment (projects fragment)
-
+            System.out.println(starthour.getValue());
             ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);
         }else{
             new FadeInRightTransition(timelineStartDate).play();
@@ -64,7 +68,7 @@ public class NewTimelineFragment {
     }
 
     private boolean correctDuration(LocalDate start, LocalDate end) { //this checks that end is older that the start.
-        if(start.isAfter(end)|| start.isEqual(end))return false;
+        if(start.isAfter(end)||starthour1.getValue()<starthour.getValue())return false;
         else{
             myTime.setStartDate(timelineStartDate.getValue());
             myTime.setEndDate(timelineEndDate.getValue());
