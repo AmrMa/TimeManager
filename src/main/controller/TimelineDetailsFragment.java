@@ -2,6 +2,7 @@ package main.controller;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
@@ -11,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
@@ -73,10 +75,45 @@ public class TimelineDetailsFragment {
 
     private void displayEvents() {
         ArrayList<Event> events = myTime.getListOfEvents();
+        int i=10;
         for (Event e: events) {
+        VBox eventing = new VBox(5);
         Label titleOfEvent = new Label(e.getEvent_title());
-        Event_Viewer.getChildren().addAll(titleOfEvent);
-      
+        Button Remov = new Button("-");                   // Remove an event
+        Remov.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+               eventing.getChildren().clear();
+            }
+        });
+        ImageView imgv =new ImageView();
+        Button addimg = new Button("add image");
+        imgv.setFitHeight(30);
+        imgv.setFitWidth(30);
+        addimg.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+            	 FileChooser fileChooser = new FileChooser();
+                 
+                 //Set extension filter
+                 FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
+                 FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
+                 fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
+                   
+                 //Show open file dialog
+                 File file = fileChooser.showOpenDialog(null);
+                            
+                 try {
+                     BufferedImage bufferedImage = ImageIO.read(file);
+                     Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                     imgv.setImage(image);
+                 } catch (IOException ex) {
+                  
+                 }
+             }
+         });
+        eventing.getChildren().addAll(titleOfEvent,Remov,imgv,addimg);
+        eventing.setLayoutX(i);
+        Event_Viewer.getChildren().add(eventing);
+        i=i+100;
         }
     }
 
