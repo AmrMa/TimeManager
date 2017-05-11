@@ -13,6 +13,7 @@ public class ScreenController {
         MENU ("../view/menu_fragment.fxml"),// Should attempt to get the number of time_lines created and the number of times you commit to them in proportion to time.
         HOME ("../view/home_fragment.fxml"), // should show  System functions <<create>> or <<load>>.
         NEW_TIMELINE("../view/new_timeline_fragment.fxml"), // one time_line
+        NEW_EVENT ("../view/new_event_fragment.fxml"),
         MY_PROJECTS ("../view/projects_fragment.fxml"), // multiple time_lines
         TIMELINE_DETAILS ("../view/timelineDetails_fragment.fxml"),
         ABOUT ("../view/about_fragment.fxml"); // Team member information.

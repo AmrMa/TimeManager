@@ -19,8 +19,7 @@ public class HomeFragment {
     @FXML private Button loadBtn;
 
     public void initialize() throws SQLException {
-        createBtn.getStyleClass().add("button-flat");
-        loadBtn.getStyleClass().add("button-flat");
+
     }
 
     @FXML
