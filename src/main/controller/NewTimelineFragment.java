@@ -43,6 +43,8 @@ public class NewTimelineFragment {
         cancelBtn.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
         starthour.getItems().addAll(1,2,4,6,8,10,12,14,16,18,20,22,24);
         starthour1.getItems().addAll(1,2,4,6,8,10,12,14,16,18,20,22,24);
+        starthour.setValue(12);
+        starthour1.setValue(12);
     }
     @FXML
     public void back() throws IOException{ScreenController.setScreen(ScreenController.Screen.HOME);}
@@ -58,7 +60,7 @@ public class NewTimelineFragment {
             myTime.setDescription(timelineDescription.getText());
             isCreated=true;
             //change button save with button display and cancel with a delete button if user clicks display we move to timeline view fragment (projects fragment)
-            System.out.println(starthour.getValue());
+            
             ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);
         }else{
             new FadeInRightTransition(timelineStartDate).play();

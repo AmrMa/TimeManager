@@ -16,6 +16,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import main.common.ScreenController;
 import main.model.Event;
@@ -45,18 +46,20 @@ public class TimelineDetailsFragment {
     @FXML private Button newEventButton;
     @FXML private ImageView imageView;
     @FXML private Button addImage;
+    @FXML
+    private Button removetimeline;
     Timeline display = myTime;
     double lineHeight;
     Period timelinePeriod;
     private Line lineTimeline;
-
+   @FXML Text title;
 
     public void initialize() throws SQLException {
         ButtonBack.setOnMouseEntered(e -> getStage().getScene().setCursor(Cursor.HAND));
         ButtonBack.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
         lineHeight = myDisplay.getLayoutY() / 2;
         timelinePeriod = display.getStartDate().until(display.getEndDate());
-
+        title.setText(display.getTitle());
         displayTimeline(timelinePeriod.getDays());
         displayEvents();
 
@@ -118,7 +121,7 @@ public class TimelineDetailsFragment {
             });
             //Line eventLine = new Line(positionToPutEvent,lineHeight - 10,positionToPutEvent,lineHeight + 10);
             myDisplay.getChildren().add(eventCircle);
-
+            myDisplay.getChildren().add(title);
             Label dateOfEvent = new Label(e.getEvent_startDate().toString());
             dateOfEvent.relocate(positionToPutEvent - 5,lineHeight + 20);
             myDisplay.getChildren().add(dateOfEvent);
@@ -161,5 +164,9 @@ public class TimelineDetailsFragment {
          } catch (IOException ex) {
           
          }
+    }
+    @FXML
+    void Removetimeline(ActionEvent event) {
+   //   myDisplay.getChildren().removeAll(imageView,lineTimeline);
     }
 }
