@@ -68,7 +68,7 @@ public class NewTimelineFragment {
     }
 
     private boolean correctDuration(LocalDate start, LocalDate end) { //this checks that end is older that the start.
-        if(start.isAfter(end)||starthour1.getValue()<starthour.getValue())return false;
+        if(start.isAfter(end)||starthour1.getValue()<starthour.getValue()||(starthour==null||starthour1==null))return false;
         else{
             myTime.setStartDate(timelineStartDate.getValue());
             myTime.setEndDate(timelineEndDate.getValue());
