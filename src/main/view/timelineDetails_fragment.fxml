@@ -30,14 +30,51 @@
                 </ImageView>
             </graphic>
         </Button>
-      <AnchorPane fx:id="myDisplay" layoutX="64.0" layoutY="191.0" prefHeight="213.0" prefWidth="1047.0">
+      <AnchorPane fx:id="myDisplay" layoutX="65.0" layoutY="189.0" prefHeight="213.0" prefWidth="1047.0">
          <children>
-            <ImageView fx:id="imageView" fitHeight="67.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" />
-            <Text fx:id="title" fill="#2b579a" layoutX="452.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.rightAnchor="523.0556640625">
+            <ImageView fx:id="imageView" fitHeight="76.0" fitWidth="220.0" layoutX="-1.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fx:id="title" fill="#2b579a" layoutX="71.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" AnchorPane.rightAnchor="942.337890625">
                <font>
-                  <Font size="39.0" />
+                  <Font size="18.0" />
                </font>
             </Text>
+            <Text fx:id="StartTime" fill="#2b579a" layoutX="105.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="EndTime" fill="#2b579a" layoutX="88.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EndTime">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <AnchorPane fx:id="Event_Viewer" layoutX="223.0" layoutY="14.0" prefHeight="213.0" prefWidth="824.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Text fill="#2b579a" layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#2b579a" layoutX="15.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#2b579a" layoutX="14.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EndTime:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#2b579a" layoutX="14.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="Description" fill="#2b579a" layoutX="109.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Separator layoutX="218.0" layoutY="11.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="-11.0" AnchorPane.topAnchor="11.0" />
          </children></AnchorPane>
       <Button fx:id="newEventButton" layoutX="65.0" layoutY="423.0" mnemonicParsing="false" onAction="#addEvent" styleClass="btn" text="New event" />
       <Button fx:id="addImage" layoutX="203.0" layoutY="423.0" mnemonicParsing="false" onAction="#Addimage" styleClass="btn" text="Add image" />

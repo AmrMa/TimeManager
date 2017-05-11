@@ -24,14 +24,12 @@ public class NewTimelineFragment {
     @FXML private AnchorPane PaneMain;
     @FXML private TextField timelineTitle;
     @FXML private TextField timelineDescription;
-    @FXML private DatePicker timelineStartDate;
-    @FXML private DatePicker timelineEndDate;
+    @FXML public DatePicker timelineStartDate;
+    @FXML public DatePicker timelineEndDate;
     @FXML private ChoiceBox<Integer> starthour;
     @FXML private ChoiceBox<Integer> starthour1;
     static Timeline myTime = new Timeline();
     static int numberOfTimelines=0;
-    private boolean isCreated=false;
-
     public void initialize() throws SQLException {
         ButtonBack.setOnMouseEntered(e -> getStage().getScene().setCursor(Cursor.HAND));
         ButtonBack.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
@@ -58,9 +56,6 @@ public class NewTimelineFragment {
             myTime.setId(numberOfTimelines++);
             myTime.setTitle(timelineTitle.getText());
             myTime.setDescription(timelineDescription.getText());
-            isCreated=true;
-            //change button save with button display and cancel with a delete button if user clicks display we move to timeline view fragment (projects fragment)
-            
             ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);
         }else{
             new FadeInRightTransition(timelineStartDate).play();
