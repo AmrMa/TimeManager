@@ -46,6 +46,7 @@ public class TimelineDetailsFragment {
     @FXML private Button newEventButton;
     @FXML private ImageView imageView;
     @FXML private Button addImage;
+    @FXML private Button edittimeline;
     @FXML
     private Button removetimeline;
     Timeline display = myTime;
@@ -166,7 +167,13 @@ public class TimelineDetailsFragment {
          }
     }
     @FXML
-    void Removetimeline(ActionEvent event) {
+    void Removetimeline(ActionEvent event) throws IOException{
    //   myDisplay.getChildren().removeAll(imageView,lineTimeline);
+    	myDisplay.getChildren().clear();
+    }
+    @FXML
+    void edittimeline(ActionEvent event) throws IOException{
+   
+    	myDisplay.getChildren().clear();
     }
 }

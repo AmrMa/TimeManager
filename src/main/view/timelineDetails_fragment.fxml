@@ -33,14 +33,15 @@
       <AnchorPane fx:id="myDisplay" layoutX="64.0" layoutY="191.0" prefHeight="213.0" prefWidth="1047.0">
          <children>
             <ImageView fx:id="imageView" fitHeight="67.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fx:id="title" fill="#2b579a" layoutX="452.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.rightAnchor="523.0556640625">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Text>
          </children></AnchorPane>
       <Button fx:id="newEventButton" layoutX="65.0" layoutY="423.0" mnemonicParsing="false" onAction="#addEvent" styleClass="btn" text="New event" />
       <Button fx:id="addImage" layoutX="203.0" layoutY="423.0" mnemonicParsing="false" onAction="#Addimage" styleClass="btn" text="Add image" />
       <Button fx:id="removetimeline" layoutX="337.0" layoutY="423.0" mnemonicParsing="false" onAction="#Removetimeline" styleClass="btn" text="Remove timeline" />
-      <Text fx:id="title" fill="#2b579a" layoutX="404.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.rightAnchor="871.86328125">
-         <font>
-            <Font size="39.0" />
-         </font>
-      </Text>
+      <Button fx:id="edittimeline" layoutX="510.0" layoutY="423.0" mnemonicParsing="false" onAction="#edittimeline" styleClass="btn" text="Edit timeline" />
     </children>
 </AnchorPane>
