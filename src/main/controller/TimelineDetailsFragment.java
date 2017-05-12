@@ -116,7 +116,7 @@ public class TimelineDetailsFragment {
             eventCircle.setOnMouseClicked(event -> {
                 myEvent = e;
                 try {
-                    ScreenController.setScreen(ScreenController.Screen.NEW_EVENT);
+                    ScreenController.setScreen(ScreenController.Screen.eventDetailsfragment);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }

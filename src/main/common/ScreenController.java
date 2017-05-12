@@ -16,8 +16,8 @@ public class ScreenController {
         NEW_EVENT ("../view/new_event_fragment.fxml"),
         MY_PROJECTS ("../view/projects_fragment.fxml"), // multiple time_lines
         TIMELINE_DETAILS ("../view/timelineDetails_fragment.fxml"),
-        ABOUT ("../view/about_fragment.fxml"); // Team member information.
-
+        ABOUT ("../view/about_fragment.fxml"), // Team member information.
+        eventDetailsfragment ("../view/eventDetailsfragment.fxml");
         private String resourceLocation;
 
         Screen(String resourceLocation) {
