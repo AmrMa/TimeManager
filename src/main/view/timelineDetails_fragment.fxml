@@ -30,55 +30,51 @@
                 </ImageView>
             </graphic>
         </Button>
-      <AnchorPane fx:id="myDisplay" layoutX="65.0" layoutY="189.0" prefHeight="213.0" prefWidth="1047.0">
-         <children>
-            <ImageView fx:id="imageView" fitHeight="76.0" fitWidth="220.0" layoutX="-1.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" />
-            <Text fx:id="title" fill="#2b579a" layoutX="71.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" AnchorPane.rightAnchor="942.337890625">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="StartTime" fill="#2b579a" layoutX="105.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="EndTime" fill="#2b579a" layoutX="88.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EndTime">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <AnchorPane fx:id="Event_Viewer" layoutX="223.0" layoutY="14.0" prefHeight="213.0" prefWidth="824.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <Text fill="#2b579a" layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fill="#2b579a" layoutX="15.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fill="#2b579a" layoutX="14.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EndTime:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fill="#2b579a" layoutX="14.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="Description" fill="#2b579a" layoutX="109.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Separator layoutX="218.0" layoutY="11.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="-11.0" AnchorPane.topAnchor="11.0" />
-         </children></AnchorPane>
+      <AnchorPane fx:id="myDisplay" layoutX="174.0" layoutY="187.0" prefHeight="213.0" prefWidth="1047.0" AnchorPane.leftAnchor="174.0" />
       <Button fx:id="newEventButton" layoutX="65.0" layoutY="423.0" mnemonicParsing="false" onAction="#addEvent" styleClass="btn" text="New event" />
-      <Button fx:id="addImage" layoutX="203.0" layoutY="423.0" mnemonicParsing="false" onAction="#Addimage" styleClass="btn" text="Add image" />
-      <Button fx:id="removetimeline" layoutX="337.0" layoutY="423.0" mnemonicParsing="false" onAction="#Removetimeline" styleClass="btn" text="Remove timeline" />
-      <Button fx:id="edittimeline" layoutX="510.0" layoutY="423.0" mnemonicParsing="false" onAction="#edittimeline" styleClass="btn" text="Edit timeline" />
+      <AnchorPane fx:id="LeftPane" layoutX="23.0" layoutY="210.0" prefHeight="213.0" prefWidth="146.0" AnchorPane.rightAnchor="1129.0">
+         <children>
+            <Text fill="#2b579a" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title: " wrappingWidth="41.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="title" fill="#2b579a" layoutX="42.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="93.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#2b579a" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="105.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Label layoutX="7.0" layoutY="27.0" text="StartDate: " textFill="#2b579a" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="3.0" layoutY="54.0" text="EndDate: " textFill="#2b579a" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="startDate" layoutX="71.0" layoutY="29.0" text="Label" textFill="#2b579a" />
+            <Label fx:id="EndDate" layoutX="57.0" layoutY="54.0" text="Label" textFill="#2b579a">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="Description" layoutX="11.0" layoutY="107.0" text="Label" textFill="#2b579a">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Separator layoutX="132.0" layoutY="1.0" orientation="VERTICAL" prefHeight="213.0" prefWidth="6.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="RemoveTimeline" layoutX="197.0" layoutY="423.0" mnemonicParsing="false" onAction="#Removetimeline" styleClass="btn" text="Remove Timeline" />
+      <Button fx:id="AddImage" layoutX="363.0" layoutY="423.0" mnemonicParsing="false" onAction="#Addimage" styleClass="btn" text="Add Image" />
+      <ImageView fx:id="timeline_image" fitHeight="116.0" fitWidth="200.0" layoutX="14.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>
