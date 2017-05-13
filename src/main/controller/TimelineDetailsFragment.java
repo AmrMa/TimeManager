@@ -3,14 +3,11 @@ package main.controller;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Separator;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
@@ -33,6 +30,9 @@ public class TimelineDetailsFragment {
     @FXML private Button ButtonBack;
     @FXML private AnchorPane myDisplay;
     @FXML private Button newEventButton;
+    @FXML private ScrollPane scrollPane;
+    @FXML private Separator separator;
+    @FXML private AnchorPane PaneMain;
 
     Timeline display = myTime;
     double lineHeight;
@@ -43,18 +43,25 @@ public class TimelineDetailsFragment {
     public void initialize() throws SQLException {
         ButtonBack.setOnMouseEntered(e -> getStage().getScene().setCursor(Cursor.HAND));
         ButtonBack.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
-        lineHeight = myDisplay.getLayoutY() / 2;
+        lineHeight = 100;//myDisplay.getLayoutY() / 2;
         timelinePeriod = display.getStartDate().until(display.getEndDate());
 
         displayTimeline(timelinePeriod.getDays());
         displayEvents();
 
+        PaneMain.prefHeightProperty().bind(getStage().heightProperty());
+        PaneMain.prefWidthProperty().bind(getStage().widthProperty());
+
+        scrollPane.prefWidthProperty().bind(PaneMain.prefWidthProperty().subtract(255));
+//        separator.prefWidthProperty().bind(getStage().widthProperty());
     }
 
     private void displayTimeline(int period) {
-        lineTimeline = new Line(0,lineHeight,myDisplay.getPrefWidth(),lineHeight);
+        System.out.println(myDisplay.getLayoutY());
+        lineTimeline = new Line(0,lineHeight,1600,lineHeight);
         myDisplay.getChildren().add(lineTimeline);
-        double distanceBetweenLines = myDisplay.getPrefWidth() / period;
+        double distanceBetweenLines = 1600 / period;
+
         for (int i = 1; i < timelinePeriod.getDays(); i++) {
             Line verticalLine = new Line(i * distanceBetweenLines,lineHeight-5,i * distanceBetweenLines, lineHeight+5);
             myDisplay.getChildren().add(verticalLine);
