@@ -26,7 +26,7 @@
                 </ImageView>
             </graphic>
         </Button>
-      <ScrollPane fx:id="scrollPane" fitToHeight="true" layoutX="64.0" layoutY="191.0" prefHeight="215.0" prefWidth="800.0" style="-fx-background-color: white">
+      <ScrollPane fx:id="scrollPane" pannable="true" fitToHeight="true" layoutX="64.0" layoutY="191.0" prefHeight="215.0" prefWidth="800.0" style="-fx-background-color: white">
          <content>
             <AnchorPane fx:id="myDisplay" prefHeight="213.0" style="-fx-background-color: white"/>
          </content>

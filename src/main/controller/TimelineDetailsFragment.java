@@ -18,7 +18,7 @@ import main.model.Timeline;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 import static main.common.StageManager.getStage;
@@ -36,35 +36,51 @@ public class TimelineDetailsFragment {
 
     Timeline display = myTime;
     double lineHeight;
-    Period timelinePeriod;
+    int timelinePeriodInDays;
     private Line lineTimeline;
 
 
     public void initialize() throws SQLException {
         ButtonBack.setOnMouseEntered(e -> getStage().getScene().setCursor(Cursor.HAND));
         ButtonBack.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
-        lineHeight = 100;//myDisplay.getLayoutY() / 2;
-        timelinePeriod = display.getStartDate().until(display.getEndDate());
 
-        displayTimeline(timelinePeriod.getDays());
+        // The height of the actual line is calculated based on the height of the Scrollpane:
+        lineHeight = scrollPane.getPrefHeight() / 2;
+        timelinePeriodInDays = (int) ChronoUnit.DAYS.between(display.getStartDate(),display.getEndDate());
+
+        displayTimeline();
         displayEvents();
 
+        // The PaneMain is the parent pane. It holds the Scrollpane inside it and therefore must be bounded to the
+        // changing size of the stage.
         PaneMain.prefHeightProperty().bind(getStage().heightProperty());
         PaneMain.prefWidthProperty().bind(getStage().widthProperty());
 
-        scrollPane.prefWidthProperty().bind(PaneMain.prefWidthProperty().subtract(255));
-//        separator.prefWidthProperty().bind(getStage().widthProperty());
+        // The area in which the Timeline is shown is a Scrollpane. If the user makes the screen wider, the width of the
+        // scrollpane is bound to the changing width of the stage.
+        // The subtraction is needed to account for the width of the ListView.
+        scrollPane.prefWidthProperty().bind(getStage().widthProperty().subtract(255));
     }
 
-    private void displayTimeline(int period) {
-        System.out.println(myDisplay.getLayoutY());
-        lineTimeline = new Line(0,lineHeight,1600,lineHeight);
-        myDisplay.getChildren().add(lineTimeline);
-        double distanceBetweenLines = 1600 / period;
+    /*
+     * The length of the line is always fixed to an X of 1600.
+     */
 
-        for (int i = 1; i < timelinePeriod.getDays(); i++) {
-            Line verticalLine = new Line(i * distanceBetweenLines,lineHeight-5,i * distanceBetweenLines, lineHeight+5);
-            myDisplay.getChildren().add(verticalLine);
+    private void displayTimeline() {
+        lineTimeline = new Line(0,lineHeight,1600,lineHeight); //TODO make 1600 based on user input?
+        myDisplay.getChildren().add(lineTimeline);
+
+        double distanceBetweenLines = 1600 / timelinePeriodInDays;
+        if (timelinePeriodInDays < 60) {
+            for (int i = 1; i < timelinePeriodInDays; i++) {
+                Line verticalLine = new Line(i * distanceBetweenLines, lineHeight - 5, i * distanceBetweenLines, lineHeight + 5);
+                myDisplay.getChildren().add(verticalLine);
+            }
+        } else if (timelinePeriodInDays < 300) {
+            for (int i = 0; i < timelinePeriodInDays; i += 7) {
+                Line verticalLine = new Line(i * distanceBetweenLines, lineHeight - 5, i * distanceBetweenLines, lineHeight + 5);
+                myDisplay.getChildren().add(verticalLine);
+            }
         }
     }
 
@@ -83,25 +99,17 @@ public class TimelineDetailsFragment {
          */
         for (Event e: events) {
             LocalDate eventMoment = e.getEvent_startDate();
-            Period periodUntilEvent = display.getStartDate().until(eventMoment);
+            long totalDays = ChronoUnit.DAYS.between(display.getStartDate(),display.getEndDate()); //timelinePeriod.getDays();
+            long daysUntilEvent = ChronoUnit.DAYS.between(display.getStartDate(),eventMoment);
 
-            int totalDays = timelinePeriod.getDays();
-            int daysUntilEvent = periodUntilEvent.getDays();
-            System.out.println("Totaldays: " + totalDays);
-            System.out.println("Days until event: " + daysUntilEvent);
+            // Calculate position on line to put event.
+            int relativePositionOfEvent = (int) ((daysUntilEvent * 100) / totalDays);
+            double positionToPutEvent = 1600 * relativePositionOfEvent / 100;
 
-            int relativePosition = (daysUntilEvent * 100) / totalDays;
-
-            double positionToPutEvent = myDisplay.getPrefWidth() * relativePosition / 100;
-            System.out.println("Position to put event: " + positionToPutEvent);
-
-            //ImageView eventCircle = new ImageView(new Image("resources/img/anEvent.png"));
             Circle eventCircle = new Circle(10, Color.WHITE);
             eventCircle.setStrokeWidth(1.0);
             eventCircle.setStroke(Color.BLACK);
             eventCircle.relocate(positionToPutEvent - 5,lineHeight - 10);
-//            eventCircle.setFitHeight(20);
-//            eventCircle.setPreserveRatio(true);
             eventCircle.setOnMouseEntered(event -> getStage().getScene().setCursor(Cursor.HAND));
             eventCircle.setOnMouseExited(event -> getStage().getScene().setCursor(Cursor.DEFAULT));
             eventCircle.setOnMouseClicked(event -> {
@@ -112,7 +120,6 @@ public class TimelineDetailsFragment {
                     e1.printStackTrace();
                 }
             });
-            //Line eventLine = new Line(positionToPutEvent,lineHeight - 10,positionToPutEvent,lineHeight + 10);
             myDisplay.getChildren().add(eventCircle);
 
             Label dateOfEvent = new Label(e.getEvent_startDate().toString());
