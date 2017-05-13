@@ -30,6 +30,7 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Button fx:id="newEventButton" layoutX="65.0" layoutY="423.0" mnemonicParsing="false" onAction="#addEvent" styleClass="btn" text="New event" />
+      <Button fx:id="Addimage" layoutX="65.0" layoutY="423.0" mnemonicParsing="false" onAction="#addEvent" styleClass="btn" text="Add image" />
+      <ImageView fx:id="imageview" fitHeight="150.0" fitWidth="200.0" layoutX="397.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>
