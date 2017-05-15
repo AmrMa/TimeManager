@@ -21,14 +21,9 @@ public class NewEventFragment {
     @FXML private Button saveButton;
     @FXML private TextField eventTitle;
     @FXML private DatePicker eventDate;
-    static Event myEvent;
+    static Event myEvent=  new Event();
 
-    public void initialize() {
-        if (myEvent != null) {
-            eventTitle.setText(myEvent.getEvent_title());
-            eventDate.setValue(myEvent.getEvent_startDate());
-        }
-    }
+   
 
     public void back() throws IOException {
         ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);

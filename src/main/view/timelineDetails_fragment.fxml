@@ -34,38 +34,26 @@
       <Button fx:id="newEventButton" layoutX="65.0" layoutY="423.0" mnemonicParsing="false" onAction="#addEvent" styleClass="btn" text="New event" />
       <AnchorPane fx:id="LeftPane" layoutX="23.0" layoutY="210.0" prefHeight="213.0" prefWidth="146.0" AnchorPane.rightAnchor="1129.0">
          <children>
-            <Text fill="#2b579a" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title: " wrappingWidth="41.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Text fx:id="title" fill="#2b579a" layoutX="6.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="93.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="1.576171875">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fx:id="title" fill="#2b579a" layoutX="42.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="93.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fill="#2b579a" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="105.0">
+            <Text fill="#2b579a" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="105.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Label layoutX="7.0" layoutY="27.0" text="StartDate: " textFill="#2b579a" AnchorPane.leftAnchor="0.0">
+            <Label fx:id="startDate" layoutY="26.0" text="Label" textFill="#2b579a">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="EndDate" layoutY="46.0" text="Label" textFill="#2b579a">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="3.0" layoutY="54.0" text="EndDate: " textFill="#2b579a" AnchorPane.leftAnchor="0.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="startDate" layoutX="71.0" layoutY="29.0" text="Label" textFill="#2b579a" />
-            <Label fx:id="EndDate" layoutX="57.0" layoutY="54.0" text="Label" textFill="#2b579a">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="Description" layoutX="11.0" layoutY="107.0" text="Label" textFill="#2b579a">
+            <Label fx:id="Description" layoutY="85.0" text="Label" textFill="#2b579a">
                <font>
                   <Font size="14.0" />
                </font>

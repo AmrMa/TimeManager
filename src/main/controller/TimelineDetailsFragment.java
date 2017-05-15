@@ -62,9 +62,9 @@ public class TimelineDetailsFragment {
         ButtonBack.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
         lineHeight = myDisplay.getLayoutY() / 2;
         timelinePeriod = display.getStartDate().until(display.getEndDate());
-        title.setText(display.getTitle());
-        EndDate.setText(display.getEndDate().toString());
-        startDate.setText(display.getStartDate().toString());
+        title.setText("Title: "+display.getTitle());
+        EndDate.setText("StartDate"+display.getEndDate().toString());
+        startDate.setText("EndDate"+display.getStartDate().toString());
         Description.setText(display.getDescription());
         displayTimeline(timelinePeriod.getDays());
         displayEvents();

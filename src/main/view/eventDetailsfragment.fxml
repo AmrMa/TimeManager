@@ -16,7 +16,7 @@
 <AnchorPane fx:id="PaneMain" prefHeight="749.0" prefWidth="1298.0" style="-fx-background-color: white;" stylesheets="@../../resources/css/menu_items.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.eventDetailsfragment">
     <children>
         <Separator layoutY="73.0" prefHeight="0.0" prefWidth="1298.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-        <Text fill="#2b579a" layoutX="75.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event Display">
+        <Text fx:id="EventTitle" fill="#2b579a" layoutX="75.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event Display">
             <font>
                 <Font name="Segoe UI Semilight" size="40.0" />
             </font>

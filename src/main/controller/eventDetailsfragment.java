@@ -3,6 +3,7 @@ package main.controller;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
 
@@ -13,8 +14,10 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import main.common.ScreenController;
+import main.model.Event;
 
 public class eventDetailsfragment {
 
@@ -23,12 +26,15 @@ public class eventDetailsfragment {
 
     @FXML
     private AnchorPane PaneMain;
-
+    @FXML private Text EventTitle;
     @FXML
     private Button Addimage;
     @FXML ImageView imageview;
    
-
+    public void initialize() throws SQLException 
+    {
+    	
+    }
     @FXML
     void back(ActionEvent event) throws IOException {
     	ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);
