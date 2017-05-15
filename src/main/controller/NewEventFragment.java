@@ -5,8 +5,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+
 import main.animation.FadeInRightTransition;
 import main.common.AlertMessage;
+
+import javafx.scene.input.MouseEvent;
+
 import main.common.ScreenController;
 import main.model.Event;
 
@@ -46,5 +50,10 @@ public class NewEventFragment {
            
             AlertMessage msg = new AlertMessage("Wrong Duration","Please specify correct event duration", Alert.AlertType.WARNING);
         }
+    }
+
+
+    @FXML
+    public void durationalEvent(MouseEvent mouseEvent) {
     }
 }

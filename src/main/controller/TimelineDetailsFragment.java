@@ -44,6 +44,7 @@ public class TimelineDetailsFragment {
     @FXML private Button ButtonBack;
     @FXML private AnchorPane myDisplay;
     @FXML private Button newEventButton;
+
     @FXML private Text title;
     @FXML private Label EndDate;
     @FXML private Label startDate;
@@ -52,6 +53,10 @@ public class TimelineDetailsFragment {
     @FXML private Button RemoveTimeline;
     @FXML private Button AddImage;
     @FXML private AnchorPane LeftPane;
+
+
+    @FXML private Button editButton;
+
     Timeline display = myTime;
     double lineHeight;
     Period timelinePeriod;
@@ -190,4 +195,10 @@ public class TimelineDetailsFragment {
     	LeftPane.getChildren().clear();
     	timeline_image.setImage(null);
     }
+
+    @FXML
+    public void editTimeline() throws IOException{
+    	 ScreenController.setScreen(ScreenController.Screen.EDIT);
+    }
 }
+

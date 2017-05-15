@@ -32,6 +32,7 @@
         </Button>
       <AnchorPane fx:id="myDisplay" layoutX="174.0" layoutY="187.0" prefHeight="213.0" prefWidth="1047.0" AnchorPane.leftAnchor="174.0" />
       <Button fx:id="newEventButton" layoutX="65.0" layoutY="423.0" mnemonicParsing="false" onAction="#addEvent" styleClass="btn" text="New event" />
+
       <AnchorPane fx:id="LeftPane" layoutX="23.0" layoutY="210.0" prefHeight="213.0" prefWidth="146.0" AnchorPane.rightAnchor="1129.0">
          <children>
             <Text fx:id="title" fill="#2b579a" layoutX="6.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="93.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="1.576171875">
@@ -64,5 +65,8 @@
       <Button fx:id="RemoveTimeline" layoutX="197.0" layoutY="423.0" mnemonicParsing="false" onAction="#Removetimeline" styleClass="btn" text="Remove Timeline" />
       <Button fx:id="AddImage" layoutX="363.0" layoutY="423.0" mnemonicParsing="false" onAction="#Addimage" styleClass="btn" text="Add Image" />
       <ImageView fx:id="timeline_image" fitHeight="116.0" fitWidth="200.0" layoutX="14.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
+
+      <Button fx:id="editButton" layoutX="191.0" layoutY="423.0" mnemonicParsing="false" onAction="#editTimeline"   styleClass="btn"  text="Edit Timeline" />
+
     </children>
 </AnchorPane>

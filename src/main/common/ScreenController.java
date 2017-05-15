@@ -18,6 +18,8 @@ public class ScreenController {
         TIMELINE_DETAILS ("../view/timelineDetails_fragment.fxml"),
         ABOUT ("../view/about_fragment.fxml"), // Team member information.
         eventDetailsfragment ("../view/eventDetailsfragment.fxml");
+      	EDIT("../view/edit_timeline_fragment.fxml");
+        
         private String resourceLocation;
 
         Screen(String resourceLocation) {
