@@ -1,6 +1,7 @@
 package main.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -10,13 +11,16 @@ import main.common.ScreenController;
 import main.model.Timeline;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
 import static main.common.StageManager.getStage;
+import static main.controller.NewTimelineFragment.myTime;
 
 
-public class NewTimelineFragment {
+public class EditTimelineFragment implements Initializable {
     @FXML private Button cancelBtn;
     @FXML private Button saveBtn;
 
@@ -24,23 +28,22 @@ public class NewTimelineFragment {
     @FXML private AnchorPane PaneMain;
     @FXML private TextField timelineTitle;
     @FXML private TextField timelineDescription;
-    @FXML public DatePicker timelineStartDate;
-    @FXML public DatePicker timelineEndDate;
-    @FXML private ChoiceBox<Integer> starthour;
-    @FXML private ChoiceBox<Integer> starthour1;
-    public static Timeline myTime = new Timeline();
+    @FXML private DatePicker timelineStartDate;
+    @FXML private DatePicker timelineEndDate;
+    Timeline display = myTime;
     static int numberOfTimelines=0;
+    private boolean isCreated=false;
+
+
     public void initialize() throws SQLException {
         ButtonBack.setOnMouseEntered(e -> getStage().getScene().setCursor(Cursor.HAND));
         ButtonBack.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
 
+        cancelBtn.getStyleClass().add("button-flat");
+        saveBtn.getStyleClass().add("button-flat");
+
         cancelBtn.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         cancelBtn.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
-
-        starthour.getItems().addAll(1,2,4,6,8,10,12,14,16,18,20,22,24);
-        starthour1.getItems().addAll(1,2,4,6,8,10,12,14,16,18,20,22,24);
-        starthour.setValue(12);
-        starthour1.setValue(12);
     }
     @FXML
     public void back() throws IOException{ScreenController.setScreen(ScreenController.Screen.HOME);}
@@ -50,10 +53,14 @@ public class NewTimelineFragment {
 
     @FXML
     public void saveTimelineDetails() throws IOException,NumberFormatException {
+    
         if (correctDuration(timelineStartDate.getValue(),timelineEndDate.getValue()) && !timelineTitle.getText().equals("")){
-            myTime.setId(numberOfTimelines++);
-            myTime.setTitle(timelineTitle.getText());
-            myTime.setDescription(timelineDescription.getText());
+            display.setId(numberOfTimelines++);
+            display.setTitle(timelineTitle.getText());
+            display.setDescription(timelineDescription.getText());
+            isCreated=true;
+            //change button save with button display and cancel with a delete button if user clicks display we move to timeline view fragment (projects fragment)
+
             ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);
         }else{
             new FadeInRightTransition(timelineStartDate).play();
@@ -63,12 +70,30 @@ public class NewTimelineFragment {
     }
 
     private boolean correctDuration(LocalDate start, LocalDate end) { //this checks that end is older that the start.
-        if(start == null||end==null || start.isAfter(end))return false;
+        //Alex null check is done here
+    	if( start==null || end==null)
+        	return false;
         else{
-            myTime.setStartDate(timelineStartDate.getValue());
-            myTime.setEndDate(timelineEndDate.getValue());
+    	if(start.isAfter(end)|| start.isEqual(end) )return false;
+        else{
+            display.setStartDate(timelineStartDate.getValue());
+            display.setEndDate(timelineEndDate.getValue());
             return true;
         }
+        }
     }
+
+    @FXML
+    public void addEvent() {
+       // if(isCreated) then pop up window or anchor pane fields fade in.
+    }
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		timelineTitle.setText(display.getTitle());
+		timelineDescription.setText(display.getDescription());
+		timelineStartDate.setValue(display.getStartDate());
+		timelineEndDate.setValue(display.getEndDate());
+		
+	}
 }
 

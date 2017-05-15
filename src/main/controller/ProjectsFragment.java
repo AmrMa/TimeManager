@@ -11,7 +11,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import main.common.ScreenController;
 import main.model.Timeline;
-import main.utils.Loading;
 
 import java.io.IOException;
 import java.sql.SQLException;

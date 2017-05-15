@@ -3,6 +3,8 @@ package main.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import static main.controller.NewTimelineFragment.myTime;
+
 
 public class Event {
     private String event_title;
@@ -12,17 +14,21 @@ public class Event {
     private int timeline_id;
     private int event_id;
 
-    public Event(){}
     public Event(String eventName, String eventDescription, LocalDate start, LocalDate end) {
+        timeline_id= myTime.getId();
+        event_id++;
     }
 
     public Event(String eventName, String eventDescription, LocalDate date) {
         this.event_title = eventName;
         this.event_description = eventDescription;
         this.event_startDate = date;
+        timeline_id= myTime.getId();
+        event_id++;
     }
-
-
+    public String toString(){
+        return this.getEvent_id()+","+this.getTimeline_id()+this.getEvent_title()+","+this.getEvent_startDate()+","+this.getEvent_endDate()+","+this.getEvent_description();
+    }
     public String getEvent_title() {
         return event_title;
     }
