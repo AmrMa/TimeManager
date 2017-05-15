@@ -44,7 +44,6 @@ public class TimelineDetailsFragment {
     @FXML private Button ButtonBack;
     @FXML private AnchorPane myDisplay;
     @FXML private Button newEventButton;
-
     @FXML private Text title;
     @FXML private Label EndDate;
     @FXML private Label startDate;
@@ -53,10 +52,6 @@ public class TimelineDetailsFragment {
     @FXML private Button RemoveTimeline;
     @FXML private Button AddImage;
     @FXML private AnchorPane LeftPane;
-
-
-    @FXML private Button editButton;
-
     Timeline display = myTime;
     double lineHeight;
     Period timelinePeriod;
@@ -86,7 +81,7 @@ public class TimelineDetailsFragment {
         }
     }
 
-    private void displayEvents() {
+    private void displayEvents()  {
         ArrayList<Event> events = myTime.getListOfEvents();
 
         /**
@@ -121,10 +116,11 @@ public class TimelineDetailsFragment {
             eventCircle.setOnMouseClicked(event -> {
                 myEvent = e;
                 try {
-                    ScreenController.setScreen(ScreenController.Screen.eventDetailsfragment);
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
+					ScreenController.setScreen(ScreenController.Screen.eventDetailsfragment);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             });
             Label dateOfEvent = new Label(e.getEvent_startDate().toString());
             Label titleOfEvent = new Label(e.getEvent_title());
@@ -195,10 +191,8 @@ public class TimelineDetailsFragment {
     	LeftPane.getChildren().clear();
     	timeline_image.setImage(null);
     }
-
     @FXML
     public void editTimeline() throws IOException{
     	 ScreenController.setScreen(ScreenController.Screen.EDIT);
     }
 }
-
