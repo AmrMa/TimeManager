@@ -41,7 +41,7 @@ public class NewEventFragment {
             myTime.addEvent(myEvent);
             ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);
         } else {
-            AlertMessage msg = new AlertMessage("Wrong Duration", "Please specify correct event duration", Alert.AlertType.WARNING);
+            new AlertMessage("Wrong Duration", "Please specify correct event duration", Alert.AlertType.WARNING);
         }
     }
 
@@ -49,5 +49,3 @@ public class NewEventFragment {
     public void durationalEvent(MouseEvent mouseEvent) {
     }
 }
-
-     //   ScreenController.setScreen(ScreenController.Screen.eventDetailsfragment);

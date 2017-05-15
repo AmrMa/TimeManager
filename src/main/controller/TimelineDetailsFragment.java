@@ -11,6 +11,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -45,7 +46,6 @@ public class TimelineDetailsFragment {
     @FXML private ScrollPane scrollPane;
     @FXML private Separator separator;
     @FXML private AnchorPane PaneMain;
-
     @FXML private Button editButton;
     @FXML private Text title;
     @FXML private Label EndDate;
@@ -55,21 +55,26 @@ public class TimelineDetailsFragment {
     @FXML private Button RemoveTimeline;
     @FXML private Button AddImage;
     @FXML private AnchorPane LeftPane;
+
     Timeline display = myTime;
     double lineHeight;
+    double lineStart;
     int timelinePeriodInDays;
     private Line lineTimeline;
     ArrayList<LocalDate> duplicates = new ArrayList<LocalDate>();
+
+
     public void initialize() throws SQLException {
         ButtonBack.setOnMouseEntered(e -> getStage().getScene().setCursor(Cursor.HAND));
         ButtonBack.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
 
         // The height of the actual line is calculated based on the height of the Scrollpane:
         lineHeight = scrollPane.getPrefHeight() / 2;
+        lineStart = 15;
         timelinePeriodInDays = (int) ChronoUnit.DAYS.between(display.getStartDate(),display.getEndDate());
-        title.setText("Title: "+display.getTitle());
-        EndDate.setText("StartDate"+display.getEndDate().toString());
-        startDate.setText("EndDate"+display.getStartDate().toString());
+        title.setText("Title: " + display.getTitle());
+        EndDate.setText("StartDate: " + display.getEndDate().toString());
+        startDate.setText("EndDate: " + display.getStartDate().toString());
         Description.setText(display.getDescription());
 
         displayTimeline();
@@ -91,18 +96,23 @@ public class TimelineDetailsFragment {
      */
 
     private void displayTimeline() {
-        lineTimeline = new Line(0,lineHeight,1600,lineHeight); //TODO make 1600 based on user input?
+        lineTimeline = new Line(lineStart,lineHeight,1600,lineHeight); //TODO make 1600 based on user input?
         myDisplay.getChildren().add(lineTimeline);
 
-        double distanceBetweenLines = 1600 / timelinePeriodInDays;
+        Line beginVertical = new Line(lineStart,lineHeight-15,lineStart,lineHeight+15);
+        Line endVertical = new Line(1600,lineHeight-15,1600,lineHeight+15);
+        myDisplay.getChildren().addAll(beginVertical,endVertical);
+
+        double distanceBetweenLines = (1600 - lineStart) / timelinePeriodInDays;
+
         if (timelinePeriodInDays < 60) {
             for (int i = 1; i < timelinePeriodInDays; i++) {
-                Line verticalLine = new Line(i * distanceBetweenLines, lineHeight - 5, i * distanceBetweenLines, lineHeight + 5);
+                Line verticalLine = new Line((i * distanceBetweenLines) + lineStart, lineHeight - 5, (i * distanceBetweenLines) + lineStart, lineHeight + 5);
                 myDisplay.getChildren().add(verticalLine);
             }
         } else if (timelinePeriodInDays < 300) {
             for (int i = 0; i < timelinePeriodInDays; i += 7) {
-                Line verticalLine = new Line(i * distanceBetweenLines, lineHeight - 5, i * distanceBetweenLines, lineHeight + 5);
+                Line verticalLine = new Line((i * distanceBetweenLines) + lineStart, lineHeight - 5, (i * distanceBetweenLines) + lineStart, lineHeight + 5);
                 myDisplay.getChildren().add(verticalLine);
             }
         }
@@ -148,10 +158,10 @@ public class TimelineDetailsFragment {
             });
             myDisplay.getChildren().add(eventCircle);
 
-            Label dateOfEvent = new Label(e.getEvent_startDate().toString());
-            Label titleOfEvent = new Label(e.getEvent_title());
-            titleOfEvent.setFont(Font.font(15));
-            vbox.getChildren().addAll(eventCircle,titleOfEvent,dateOfEvent);
+//            Label dateOfEvent = new Label(e.getEvent_startDate().toString());
+//            Label titleOfEvent = new Label(e.getEvent_title());
+//            titleOfEvent.setFont(Font.font(15));
+//            vbox.getChildren().addAll(eventCircle,titleOfEvent,dateOfEvent);
             duplicates.add(e.getEvent_startDate());
             int y=100;
            if(duplicates(duplicates)){
@@ -165,31 +175,41 @@ public class TimelineDetailsFragment {
 
             myDisplay.getChildren().add(vbox);
 
+            Pane circlePane = new Pane();
+            Circle circle = new Circle(10,Color.RED);
+            circlePane.getChildren().add(circle);
+            AnchorPane.setLeftAnchor(circlePane,lineStart + positionToPutEvent);
+            AnchorPane.setTopAnchor(circlePane,lineHeight);
+
+            Label dateOfEvent = new Label(e.getEvent_startDate().toString());
+            AnchorPane.setBottomAnchor(dateOfEvent,circle.getRadius() - 10);
+            AnchorPane.setLeftAnchor(dateOfEvent,lineStart + positionToPutEvent);
+            circlePane.getChildren().add(dateOfEvent);
+
+            Label titleOfEvent = new Label(e.getEvent_title());
+            titleOfEvent.relocate(0,30);
+            titleOfEvent.setFont(Font.font(13));
+            circlePane.getChildren().add(titleOfEvent);
+            myDisplay.getChildren().add(circlePane);
+
         }
     }
 
     @FXML
     public void back() throws IOException {ScreenController.setScreen(ScreenController.Screen.HOME);}
 
-    //It is not a task, it is an event we should add.
-    public void addTask(){
-
-    }
-
     @FXML
     public void addEvent() throws IOException {
         ScreenController.setScreen(ScreenController.Screen.NEW_EVENT);
     }
 
-    boolean duplicates(final ArrayList<LocalDate> zipcodelist)
-    {
-      Set<LocalDate> lump = new HashSet<LocalDate>();
-      for (LocalDate i : zipcodelist)
-      {
-        if (lump.contains(i)) return true;
-        lump.add(i);
-      }
-      return false;
+    private boolean duplicates(final ArrayList<LocalDate> arrayList) {
+        Set<LocalDate> lump = new HashSet<LocalDate>();
+        for (LocalDate i : arrayList) {
+            if (lump.contains(i)) return true;
+            lump.add(i);
+        }
+        return false;
     }
 
     @FXML
