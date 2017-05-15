@@ -26,8 +26,6 @@ public class NewTimelineFragment {
     @FXML private TextField timelineDescription;
     @FXML public DatePicker timelineStartDate;
     @FXML public DatePicker timelineEndDate;
-    @FXML private ChoiceBox<Integer> starthour;
-    @FXML private ChoiceBox<Integer> starthour1;
     static Timeline myTime = new Timeline();
     static int numberOfTimelines=0;
     public void initialize() throws SQLException {
@@ -39,10 +37,7 @@ public class NewTimelineFragment {
 
         cancelBtn.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         cancelBtn.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
-        starthour.getItems().addAll(1,2,4,6,8,10,12,14,16,18,20,22,24);
-        starthour1.getItems().addAll(1,2,4,6,8,10,12,14,16,18,20,22,24);
-        starthour.setValue(12);
-        starthour1.setValue(12);
+
     }
     @FXML
     public void back() throws IOException{ScreenController.setScreen(ScreenController.Screen.HOME);}
@@ -65,7 +60,7 @@ public class NewTimelineFragment {
     }
 
     private boolean correctDuration(LocalDate start, LocalDate end) { //this checks that end is older that the start.
-        if(start.isAfter(end)||starthour1.getValue()<starthour.getValue()||(starthour==null||starthour1==null))return false;
+        if(start == null||end==null || start.isAfter(end))return false;
         else{
             myTime.setStartDate(timelineStartDate.getValue());
             myTime.setEndDate(timelineEndDate.getValue());
@@ -75,7 +70,7 @@ public class NewTimelineFragment {
     }
 
     @FXML
-    public void addEvent() {
+    public void addEvent() { // this should the event like the professional project timeline application.
        // if(isCreated) then pop up window or anchor pane fields fade in.
     }
 }

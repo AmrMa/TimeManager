@@ -45,13 +45,7 @@ public class TimelineDetailsFragment {
     @FXML private ScrollPane scrollPane;
     @FXML private Separator separator;
     @FXML private AnchorPane PaneMain;
-
     @FXML private Button editButton;
-    @FXML private Text title;
-    @FXML private Label EndDate;
-    @FXML private Label startDate;
-    @FXML private Label Description;
-    @FXML private ImageView timeline_image;
     @FXML private Button RemoveTimeline;
     @FXML private Button AddImage;
     @FXML private AnchorPane LeftPane;
@@ -67,10 +61,7 @@ public class TimelineDetailsFragment {
         // The height of the actual line is calculated based on the height of the Scrollpane:
         lineHeight = scrollPane.getPrefHeight() / 2;
         timelinePeriodInDays = (int) ChronoUnit.DAYS.between(display.getStartDate(),display.getEndDate());
-        title.setText("Title: "+display.getTitle());
-        EndDate.setText("StartDate"+display.getEndDate().toString());
-        startDate.setText("EndDate"+display.getStartDate().toString());
-        Description.setText(display.getDescription());
+
 
         displayTimeline();
         displayEvents();
@@ -207,7 +198,7 @@ public class TimelineDetailsFragment {
          try {
              BufferedImage bufferedImage = ImageIO.read(file);
              Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-             timeline_image.setImage(image);
+
          } catch (IOException ex) {
 
          }
@@ -216,7 +207,7 @@ public class TimelineDetailsFragment {
     void Removetimeline(ActionEvent event) throws IOException{
     	myDisplay.getChildren().clear();
     	LeftPane.getChildren().clear();
-    	timeline_image.setImage(null);
+
     }
     @FXML
     public void editTimeline() throws IOException{
