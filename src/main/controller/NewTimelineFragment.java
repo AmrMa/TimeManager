@@ -24,12 +24,12 @@ public class NewTimelineFragment {
     @FXML private AnchorPane PaneMain;
     @FXML private TextField timelineTitle;
     @FXML private TextField timelineDescription;
-    @FXML private DatePicker timelineStartDate;
-    @FXML private DatePicker timelineEndDate;
+    @FXML public DatePicker timelineStartDate;
+    @FXML public DatePicker timelineEndDate;
+    @FXML private ChoiceBox<Integer> starthour;
+    @FXML private ChoiceBox<Integer> starthour1;
     static Timeline myTime = new Timeline();
     static int numberOfTimelines=0;
-    private boolean isCreated=false;
-
     public void initialize() throws SQLException {
         ButtonBack.setOnMouseEntered(e -> getStage().getScene().setCursor(Cursor.HAND));
         ButtonBack.setOnMouseExited(e -> getStage().getScene().setCursor(Cursor.DEFAULT));
@@ -39,6 +39,10 @@ public class NewTimelineFragment {
 
         cancelBtn.setOnMouseEntered(e->getStage().getScene().setCursor(Cursor.HAND));
         cancelBtn.setOnMouseExited(e->getStage().getScene().setCursor(Cursor.DEFAULT));
+        starthour.getItems().addAll(1,2,4,6,8,10,12,14,16,18,20,22,24);
+        starthour1.getItems().addAll(1,2,4,6,8,10,12,14,16,18,20,22,24);
+        starthour.setValue(12);
+        starthour1.setValue(12);
     }
     @FXML
     public void back() throws IOException{ScreenController.setScreen(ScreenController.Screen.HOME);}
@@ -52,9 +56,6 @@ public class NewTimelineFragment {
             myTime.setId(numberOfTimelines++);
             myTime.setTitle(timelineTitle.getText());
             myTime.setDescription(timelineDescription.getText());
-            isCreated=true;
-            //change button save with button display and cancel with a delete button if user clicks display we move to timeline view fragment (projects fragment)
-
             ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);
         }else{
             new FadeInRightTransition(timelineStartDate).play();
@@ -64,7 +65,7 @@ public class NewTimelineFragment {
     }
 
     private boolean correctDuration(LocalDate start, LocalDate end) { //this checks that end is older that the start.
-        if(start.isAfter(end)|| start.isEqual(end))return false;
+        if(start.isAfter(end)||starthour1.getValue()<starthour.getValue()||(starthour==null||starthour1==null))return false;
         else{
             myTime.setStartDate(timelineStartDate.getValue());
             myTime.setEndDate(timelineEndDate.getValue());

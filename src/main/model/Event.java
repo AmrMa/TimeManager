@@ -12,7 +12,7 @@ public class Event {
     private int timeline_id;
     private int event_id;
 
-
+    public Event(){}
     public Event(String eventName, String eventDescription, LocalDate start, LocalDate end) {
     }
 
