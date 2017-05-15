@@ -18,7 +18,7 @@
         </Text>
       <ImageView fitHeight="152.0" fitWidth="187.0" layoutX="23.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../MyTimeline/src/resources/img/mehdi.jpg" />
+            <Image url="@../../resources/img/mehdi.jpg" />
          </image>
       </ImageView>
       <Label layoutX="14.0" layoutY="70.0" text="Founders" textFill="#837f7f">
@@ -29,29 +29,29 @@
       <Label layoutX="18.0" layoutY="323.0" text="//describe yourself" />
       <ImageView fitHeight="152.0" fitWidth="161.0" layoutX="231.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../MyTimeline/src/resources/img/Jorian.jpg" />
+            <Image url="@../../resources/img/Jorian.jpg" />
          </image>
       </ImageView>
       <Label layoutX="240.0" layoutY="323.0" text="//describe yourself" />
       <ImageView fitHeight="175.0" fitWidth="152.0" layoutX="422.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../MyTimeline/src/resources/img/amr.jpg" />
+            <Image url="@../../resources/img/amr.jpg" />
          </image>
       </ImageView>
       <Label layoutX="422.0" layoutY="323.0" text="//describe yourself" />
       <ImageView fitHeight="152.0" fitWidth="187.0" layoutX="224.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../MyTimeline/src/resources/img/23175925.jpg" />
+            <Image url="@../../resources/img/23175925.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="152.0" fitWidth="187.0" layoutX="23.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../MyTimeline/src/resources/img/azadeh.jpg" />
+            <Image url="@../../resources/img/azadeh.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="174.0" fitWidth="187.0" layoutX="422.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../MyTimeline/src/resources/img/kanzaki.jpg" />
+            <Image url="@../../resources/img/kanzaki.jpg" />
          </image>
       </ImageView>
       <Label layoutX="23.0" layoutY="631.0" text="//describe yourself" />
