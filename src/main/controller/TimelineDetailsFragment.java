@@ -33,9 +33,8 @@ public class TimelineDetailsFragment {
     @FXML private Button ButtonBack;
     @FXML private AnchorPane myDisplay;
     @FXML private Button newEventButton;
-    //I am Alex. Hello from the other side
-    @FXML private Button editButton;
 
+    @FXML private Button editButton;
     Timeline display = myTime;
     double lineHeight;
     Period timelinePeriod;
@@ -133,15 +132,8 @@ public class TimelineDetailsFragment {
     public void addEvent() throws IOException {
         ScreenController.setScreen(ScreenController.Screen.NEW_EVENT);
     }
-    
-    
-    // Alex returns you to edit the timeline to create place
     @FXML
     public void editTimeline() throws IOException{
-    	 ScreenController.setScreen(ScreenController.Screen.NEW_TIMELINE);
+    	 ScreenController.setScreen(ScreenController.Screen.EDIT);
     }
-    
-    
-    
-    
 }
