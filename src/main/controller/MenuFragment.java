@@ -1,6 +1,5 @@
 package main.controller;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
@@ -32,6 +31,7 @@ public class MenuFragment {
 
     public void initialize() {
         StageManager.setPane(PaneFragment);
+        PaneFragment.prefWidthProperty().bind(getStage().widthProperty().subtract(150));
         //LargeScreen.setLargeScreen();
         rectangle2D = Screen.getPrimary().getVisualBounds();
         width=0.1;
