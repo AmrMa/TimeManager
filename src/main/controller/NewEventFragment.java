@@ -5,14 +5,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import main.animation.FadeInRightTransition;
-import main.common.AlertMessage;
 import javafx.scene.input.MouseEvent;
+import main.common.AlertMessage;
 import main.common.ScreenController;
 import main.model.Event;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 import static main.controller.NewTimelineFragment.myTime;
 
@@ -38,15 +36,13 @@ public class NewEventFragment {
     @FXML
     public void saveEvent() throws IOException {
 
-    	if(eventDate.getValue().isBefore(myTime.getEndDate())&eventDate.getValue().isAfter(myTime.getStartDate())&eventTitle!=null){
-        myEvent = new Event(eventTitle.getText(),"TEST DESCRIPTION",eventDate.getValue());
-        myTime.addEvent(myEvent);
-        ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);
-    }
-    }
-    	else{
-
-        AlertMessage msg = new AlertMessage("Wrong Duration","Please specify correct event duration", Alert.AlertType.WARNING);
+        if (eventDate.getValue().isBefore(myTime.getEndDate()) & eventDate.getValue().isAfter(myTime.getStartDate()) & eventTitle != null) {
+            myEvent = new Event(eventTitle.getText(), "TEST DESCRIPTION", eventDate.getValue());
+            myTime.addEvent(myEvent);
+            ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);
+        } else {
+            AlertMessage msg = new AlertMessage("Wrong Duration", "Please specify correct event duration", Alert.AlertType.WARNING);
+        }
     }
 
     @FXML
