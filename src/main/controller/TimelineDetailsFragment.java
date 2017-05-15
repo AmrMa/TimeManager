@@ -34,6 +34,7 @@ public class TimelineDetailsFragment {
     @FXML private Separator separator;
     @FXML private AnchorPane PaneMain;
 
+    @FXML private Button editButton;
     Timeline display = myTime;
     double lineHeight;
     int timelinePeriodInDays;
@@ -144,5 +145,9 @@ public class TimelineDetailsFragment {
     @FXML
     public void addEvent() throws IOException {
         ScreenController.setScreen(ScreenController.Screen.NEW_EVENT);
+    }
+    @FXML
+    public void editTimeline() throws IOException{
+    	 ScreenController.setScreen(ScreenController.Screen.EDIT);
     }
 }

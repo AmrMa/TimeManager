@@ -32,5 +32,6 @@
          </content>
       </ScrollPane>
       <Button fx:id="newEventButton" layoutX="65.0" layoutY="423.0" mnemonicParsing="false" onAction="#addEvent" styleClass="btn" text="New event" />
+      <Button fx:id="editButton" layoutX="191.0" layoutY="423.0" mnemonicParsing="false" onAction="#editTimeline"   styleClass="btn"  text="Edit Timeline" />
     </children>
 </AnchorPane>

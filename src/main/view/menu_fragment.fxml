@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -21,7 +23,7 @@
                     <children>
                         <ScrollPane layoutX="40.0" layoutY="72.0" prefHeight="543.0" prefWidth="892.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <content>
-                                <AnchorPane fx:id="PaneFragment" minHeight="0.0" minWidth="200.0" prefHeight="541.0" prefWidth="890.0" style="-fx-background-color: white;" />
+                                <AnchorPane fx:id="PaneFragment" minHeight="0.0" minWidth="0.0" prefHeight="749.0" prefWidth="1298.0" style="-fx-background-color: white;" />
                             </content>
                         </ScrollPane>
                     </children>
