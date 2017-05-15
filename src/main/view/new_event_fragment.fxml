@@ -17,7 +17,7 @@
     <children>
       <ImageView fitHeight="545.0" fitWidth="465.0" layoutX="438.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../MyTimeline/src/resources/img/eventDis.png" />
+            <Image url="@../../resources/img/eventDis.png" />
          </image>
       </ImageView>
         <Separator layoutY="73.0" prefHeight="0.0" prefWidth="1298.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />

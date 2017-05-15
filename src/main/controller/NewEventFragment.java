@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import main.common.ScreenController;
 import main.model.Event;
 
@@ -47,5 +48,9 @@ public class NewEventFragment {
         }
         myTime.addEvent(myEvent);
         ScreenController.setScreen(ScreenController.Screen.TIMELINE_DETAILS);
+    }
+
+    @FXML
+    public void durationalEvent(MouseEvent mouseEvent) {
     }
 }

@@ -16,12 +16,12 @@
     <children>
       <ImageView fitHeight="378.0" fitWidth="370.0" layoutX="523.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../MyTimeline/src/resources/img/timelineDis.png" />
+            <Image url="@../../resources/img/timelineDis.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="326.0" layoutX="508.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../MyTimeline/src/resources/img/Linnaeus_021.gif" />
+            <Image url="@../../resources/img/Linnaeus_021.gif" />
          </image>
       </ImageView>
         <Separator layoutY="73.0" prefHeight="0.0" prefWidth="1298.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
